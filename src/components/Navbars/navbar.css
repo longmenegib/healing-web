@@ -1,0 +1,19 @@
+.active{
+    color: #ffd600 !important;
+    border-bottom: 2px #198bff solid;
+}
+.navitems{
+    color: #000;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.navitems:hover{
+    color: gold !important;
+    text-decoration: none !important;
+}
+
+.dropdownn:hover{
+    color: gold !important;
+    text-decoration: none !important;
+}

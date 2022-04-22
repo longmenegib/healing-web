@@ -1,0 +1,96 @@
+@import 'settings';
+
+.header{
+    .aside{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+         .center{
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        &-right{
+            img{
+                width: 300px;
+            }
+        }
+        &-left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            img{
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+            .line{
+                height: 1px;
+                width: 20px;
+                transform: rotate(90deg);
+                background: $dark;
+            }
+        }
+    }
+    .navigation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $orange;
+        border: 1px solid $orange;
+        .left{
+            width: 85%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        &-left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            li{
+                padding: 10px;
+                transition: .3s ease;
+                a{
+                    color: $white;
+                    font-weight: 500;
+                }
+                // &:hover{
+                //     background: $white;
+                //     a{
+                //         color: $orange;
+                //     }
+                // }
+            }
+        }
+        &-right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li{
+                border-right: 2px solid $orange;
+                padding: 10px;
+                background: $white;
+                transition: .3s ease;
+                a{
+                    color: $orange;
+                    font-weight: 600;
+                }
+                // &:hover{
+                //     background: $white;
+                //     a{
+                //         color: $orange;
+                //     }
+                // }
+            }
+        }
+    }
+}

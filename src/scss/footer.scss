@@ -1,0 +1,83 @@
+@import 'settings';
+
+.footer {
+    .container {
+        background: $red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2rem 0;
+
+        div {
+            position: relative;
+
+            img {
+                position: absolute;
+                width: 60px;
+                opacity: .3;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            h2 {
+                font-family: 'Montserrat Alternates', sans-serif;
+                color: $white;
+                font-weight: 700;
+                font-size: 35px;
+                text-align: center;
+            }
+        }
+
+        h3 {
+            color: $white;
+            font-weight: 400;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .subscribe {
+            position: relative;
+            margin-top: 1.5rem;
+            width: 500px;
+            max-width: 90%;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #000;
+
+            input {
+                padding: 15px 35% 15px 20px;
+                outline: none;
+                overflow: hidden;
+                border: none;
+                width: 100%;
+            }
+
+            button {
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                background: $blue;
+                color: $white;
+                font-weight: 500;
+                width: 30%;
+                height: 100%;
+                border: none;
+            }
+        }
+    }
+
+    .copyright {
+        background: $purple;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            font-size: 15px;
+            color: $white;
+            padding: 1.5rem 0;
+        }
+    }
+}

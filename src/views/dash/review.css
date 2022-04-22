@@ -1,0 +1,107 @@
+.profileGallery .container-footer .reviewws {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100px;
+  }
+.reviewws .profile-card h3 {
+    width: 100%;
+    color: #7a7a7a;
+    font-size: 16px;
+    padding: 2rem 0 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.reviewws .profile-card h3 span {
+    margin-left: 5px;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+  }
+.reviewws .profile-card p {
+    font-size: 13px;
+  }
+.reviewws .profile-card button {
+    cursor: pointer;
+    background: #f7951d;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    overflow: hidden;
+    font-weight: 500;
+    padding: 8px;
+    margin-top: 20px;
+    border: 2px solid #f7951d;
+    transition: 0.3s ease;
+  }
+  
+.reviewws .profile-card button:hover {
+    color: #f7951d;
+    background: #fff;
+  }
+.reviewws .profile-card .box {
+    width: 100%;
+    height: 200px;
+    background: #eeeeee;
+    border-radius: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+.reviewws .profile-card .box .list {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+  }
+.reviewws .profile-card .box .list-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+.reviewws .profile-card .box .list-text h3 {
+    font-weight: 700;
+    font-size: 12px;
+    color: #000;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+.reviewws .profile-card .box .list-text p {
+    font-size: 13px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+.reviewws .profile-card .box .list .profile-card-star .star-fill {
+    width: 10px;
+    background: #f7951d;
+    border-radius: 50%;
+    padding: 2px;
+  }
+.reviewws .profile-card .box .list .profile-card-star .star-light {
+    background: #cccccc;
+    width: 10px;
+    border-radius: 50%;
+    padding: 2px;
+  }
+.reviewws .profile-card .box::-webkit-scrollbar {
+    background: #7a7a7a;
+    width: 5px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+.reviewws .profile-card .box::-webkit-scrollbar-thumb {
+    background: #eeeeee;
+    border-radius: 20px;
+  }

@@ -1,0 +1,653 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+.footer .container {
+  background: #cc3333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.footer .container div {
+  position: relative;
+}
+.footer .container div img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer .container div h2 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.footer .container h3 {
+  color: #fff;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+}
+.footer .container .subscribe {
+  position: relative;
+  margin-top: 1.5rem;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+}
+.footer .container .subscribe input {
+  padding: 15px 35% 15px 20px;
+  outline: none;
+  overflow: hidden;
+  border: none;
+  width: 100%;
+}
+.footer .container .subscribe button {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  background: #3399cc;
+  color: #fff;
+  font-weight: 500;
+  width: 30%;
+  height: 100%;
+  border: none;
+}
+.footer .copyright {
+  background: #2f2338;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .copyright p {
+  font-size: 15px;
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+.header .aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.header .aside .center {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.header .aside-right img {
+  width: 300px;
+}
+.header .aside-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.header .aside-left .line {
+  height: 1px;
+  width: 20px;
+  transform: rotate(90deg);
+  background: #000;
+}
+.header .navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7951d;
+  border: 1px solid #f7951d;
+}
+.header .navigation .left {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .navigation-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.header .navigation-left li {
+  padding: 10px;
+  transition: 0.3s ease;
+}
+.header .navigation-left li a {
+  color: #fff;
+  font-weight: 500;
+}
+.header .navigation-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .navigation-right li {
+  border-right: 2px solid #f7951d;
+  padding: 10px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+.header .navigation-right li a {
+  color: #f7951d;
+  font-weight: 600;
+}
+
+.profileCalendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileCalendar .container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.profileCalendar .container-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.profileCalendar .container-header .header-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7951d;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+}
+.profileCalendar .container-header .header-img img {
+  width: 50%;
+}
+.profileCalendar .container-header .header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+}
+.profileCalendar .container-header .header-title .card-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileCalendar .container-header .header-title .card-map h3 {
+  font-weight: 700;
+  font-size: 20px;
+  padding-right: 5px;
+}
+.profileCalendar .container-header .header-title .card-map div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileCalendar .container-header .header-title .card-map div img {
+  width: 15px;
+}
+.profileCalendar .container-header .header-title .card-map div span {
+  font-size: 13px;
+  color: #3399cc;
+}
+.profileCalendar .container-header .header-title .card-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+.profileCalendar .container-header .header-title .card-contact li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.profileCalendar .container-header .header-title .card-contact li img {
+  width: 30px;
+  background: #cc3333;
+  border-radius: 50%;
+  padding: 6px;
+  margin-right: 5px;
+}
+.profileCalendar .container-header .header-title .card-contact li span {
+  color: #7a7a7a;
+}
+.profileCalendar .container-header .header-title .card-star {
+  margin: 5px 0;
+}
+.profileCalendar .container-header .header-title .card-star img {
+  width: 15px;
+  background: #f7951d;
+  border-radius: 50%;
+  padding: 3px;
+}
+.profileCalendar .container-header .header-title .card-star img:last-child,
+.profileCalendar .container-header .header-title .card-star img:nth-child(4) {
+  background: #cccccc;
+}
+.profileCalendar .container-header .header-title p {
+  font-size: 13px;
+}
+.profileCalendar .container-header .header-title button {
+  cursor: pointer;
+  background: #cc3333;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 8px;
+  margin: 10px 0;
+  border: 2px solid #cc3333;
+  transition: 0.3s ease;
+}
+.profileCalendar .container-header .header-title button:hover {
+  color: #cc3333;
+  background: #fff;
+}
+.profileCalendar .container-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.profileCalendar .container-footer .footer-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 250px;
+}
+.profileCalendar .container-footer .footer-left .card h3 {
+  width: 100%;
+  color: #7a7a7a;
+  font-size: 16px;
+  padding: 2rem 0 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileCalendar .container-footer .footer-left .card h3 span {
+  margin-left: 5px;
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  background: #cccccc;
+}
+.profileCalendar .container-footer .footer-left .card p {
+  font-size: 13px;
+}
+.profileCalendar .container-footer .footer-left .card button {
+  cursor: pointer;
+  background: #f7951d;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 20px;
+  border: 2px solid #f7951d;
+  transition: 0.3s ease;
+}
+.profileCalendar .container-footer .footer-left .card button:hover {
+  color: #f7951d;
+  background: #fff;
+}
+.profileCalendar .container-footer .footer-left .card .box {
+  width: 250px;
+  height: 200px;
+  background: #eeeeee;
+  border-radius: 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.profileCalendar .container-footer .footer-left .card .box .list {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+.profileCalendar .container-footer .footer-left .card .box .list-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.profileCalendar .container-footer .footer-left .card .box .list-text h3 {
+  font-weight: 700;
+  font-size: 12px;
+  color: #000;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.profileCalendar .container-footer .footer-left .card .box .list-text p {
+  font-size: 13px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+.profileCalendar .container-footer .footer-left .card .box .list .card-star img {
+  width: 10px;
+  background: #f7951d;
+  border-radius: 50%;
+  padding: 2px;
+}
+.profileCalendar .container-footer .footer-left .card .box .list .card-star img:last-child,
+.profileCalendar .container-footer .footer-left .card .box .list .card-star img:nth-child(4) {
+  background: #cccccc;
+}
+.profileCalendar .container-footer .footer-left .card .box::-webkit-scrollbar {
+  background: #7a7a7a;
+  width: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.profileCalendar .container-footer .footer-left .card .box::-webkit-scrollbar-thumb {
+  background: #eeeeee;
+  border-radius: 20px;
+}
+.profileCalendar .container-footer .footer-right {
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  padding: 0 10px;
+}
+.profileCalendar .container-footer .footer-right .right-header {
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileCalendar .container-footer .footer-right .right-header .center {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.profileCalendar .container-footer .footer-right .right-header li {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-right: 2rem;
+}
+.profileCalendar .container-footer .footer-right .right-header li img {
+  margin-right: 5px;
+}
+.profileCalendar .container-footer .footer-right .right-header li span {
+  font-size: 13px;
+  color: #7a7a7a;
+}
+.profileCalendar .container-footer .footer-right .right-header li:hover {
+  background: rgba(247, 149, 29, 0.1);
+}
+.profileCalendar .container-footer .footer-right .right-header li.active {
+  border-bottom: 2px solid #f7951d;
+}
+.profileCalendar .container-footer .footer-right .right-header li.active span {
+  color: #f7951d;
+}
+.profileCalendar .container-footer .footer-right .right-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.profileCalendar .container-footer .footer-right .right-body .center {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profileCalendar .container-footer .footer-right .right-body .hours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profileCalendar .container-footer .footer-right .right-body .hours div {
+  width: 220px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profileCalendar .container-footer .footer-right .right-body .hours div .hour {
+  margin: 5px;
+  width: 100px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem;
+  border: 1px solid #000;
+  border-radius: 15px;
+  font-weight: 500;
+  color: #000;
+  transition: 0.3s ease;
+}
+.profileCalendar .container-footer .footer-right .right-body .hours div .hour:hover {
+  color: #fff;
+  background: linear-gradient(180deg, #cd3732, #f48e1e);
+  border: none;
+}
+.profileCalendar .container-footer .footer-right .right-body .hours button {
+  width: 170px;
+  cursor: pointer;
+  background: #3399cc;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: 20px;
+  border: 2px solid #3399cc;
+  transition: 0.3s ease;
+}
+.profileCalendar .container-footer .footer-right .right-body .hours button:hover {
+  color: #3399cc;
+  background: #fff;
+}
+
+.calendar {
+  width: 450px;
+  max-width: 100%;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 4px rgba(247, 149, 29, 0.1);
+}
+
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 30px;
+  text-align: center;
+}
+.month .text h2 {
+  font-size: 30px;
+  color: #f7951d;
+  font-weight: 900;
+}
+.month .text p {
+  color: #f7951d;
+}
+
+.weekdays {
+  color: #fff;
+  padding-bottom: 7px;
+  display: flex;
+  border-bottom: 1px solid #cccccc;
+}
+
+.days {
+  cursor: pointer;
+  font-weight: 300;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weekdays div,
+.days div {
+  text-align: center;
+  width: 14.28%;
+}
+
+.days div {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  transition: all 0.4s;
+}
+
+.prev_date {
+  color: #999;
+}
+
+.today {
+  border-radius: 30px;
+  background: linear-gradient(180deg, #cd3732, #f48e1e);
+  color: #fff;
+}
+
+.days div:hover {
+  background: #f1f1f1;
+  color: #000;
+}
+
+.prev,
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 23px;
+  transition: all 0.4s;
+}
+
+.prev:hover,
+.next:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}

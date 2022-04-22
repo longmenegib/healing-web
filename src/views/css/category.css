@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+.header .aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.header .aside .center {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.header .aside-right img {
+  width: 300px;
+}
+.header .aside-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.header .aside-left .line {
+  height: 1px;
+  width: 20px;
+  transform: rotate(90deg);
+  background: #000;
+}
+.header .navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7951d;
+  border: 1px solid #f7951d;
+}
+.header .navigation .left {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .navigation-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.header .navigation-left li {
+  padding: 10px;
+  transition: 0.3s ease;
+}
+.header .navigation-left li a {
+  color: #fff;
+  font-weight: 500;
+}
+.header .navigation-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .navigation-right li {
+  border-right: 2px solid #f7951d;
+  padding: 10px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+.header .navigation-right li a {
+  color: #f7951d;
+  font-weight: 600;
+}
+
+.category .container-category {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem 0;
+  min-height: 30px;
+  background: linear-gradient(180deg, #cd3732, #dd5b2c, #f48e1e);
+  overflow: hidden;
+}
+.category .container-category .bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.category .container-category .bg .img-left,
+.category .container-category .bg .img-right {
+  width: 330px;
+}
+.category .container-category .title {
+  position: relative;
+}
+.category .container-category .title img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.category .container-category .title h2 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.category .slides {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+.category .slides .center {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.category .slides .category-card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px 0;
+  transition: 0.3s ease;
+}
+.category .slides .category-card-img {
+  background: #f7951d;
+  border-radius: 10px;
+  padding: 10px;
+}
+.category .slides .category-card-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px 0;
+}
+.category .slides .category-card-map h3 {
+  font-weight: 700;
+}
+.category .slides .category-card-map div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category .slides .category-card-map div img {
+  width: 15px;
+}
+.category .slides .category-card-map div span {
+  font-size: 13px;
+  color: #3399cc;
+}
+.category .slides .category-card-star .star-fill {
+  width: 15px;
+  background: gold;
+  border-radius: 50%;
+  padding: 3px;
+}
+/* .category .slides .category-card-star img:last-child, */
+.category .slides .category-card-star .star-light {
+  background: #cccccc;
+  width: 15px;
+  /* background: gold; */
+  border-radius: 50%;
+  padding: 3px;
+}
+.category .slides .category-card button {
+  cursor: pointer;
+  background: #cc3333;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 8px;
+  margin: 10px 0;
+  border: 2px solid #cc3333;
+  transition: 0.3s ease;
+}
+.category .slides .category-card button:hover {
+  color: #cc3333;
+  background: #fff;
+}
+.category .slides .category-card:hover {
+  transform: translateY(10px);
+}
+
+
+ .subscribe {
+  position: relative;
+  margin-top: 0.5rem;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+}
+ .subscribe input {
+  padding: 15px 20% 15px 20px;
+  outline: none;
+  overflow: hidden;
+  border: none;
+  width: 100%;
+}
+ .subscribe button {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  background: #cc3333;
+  color: #fff;
+  font-weight: 500;
+  width: 17%;
+  height: 100%;
+  border: none;
+}
+ .subscribe button img {
+  width: 30px;
+}

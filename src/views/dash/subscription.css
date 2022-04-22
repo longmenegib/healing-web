@@ -1,0 +1,39 @@
+.subs-plan{
+    width: 160px;
+    border: 3px #ff9933 solid;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.subs-plan .title{
+    background-color: #ff9933;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+
+.subs-plan .dayNum{
+    text-align: center;
+    font-size: xx-large;
+    color: #ff9933;
+    font-weight: bold;
+}
+
+.subs-plan .days{
+    text-align: center;
+    font-size: large;
+    color: #ff9933;
+    font-weight: bold;
+}
+
+.subs-plan .price{
+    text-align: center;
+    font-size: medium;
+    color: #ff9933;
+    font-weight: bold;
+}

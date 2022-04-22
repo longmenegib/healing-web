@@ -1,0 +1,48 @@
+.footitem:hover{
+    color: grey !important;
+}
+
+
+.footer-links {
+    margin-bottom: 30px;
+  }
+  
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+.footer-links ul .foot-item{
+    padding-right: 2px;
+    color: gold;
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+.footer-links ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+.footer-links ul li:first-child {
+    padding-top: 0;
+  }
+
+.footer-links p{
+    color: #fff;
+  }
+  
+.footer-links ul a {
+    color: #c2b9b9;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .foot-item{
+      margin-left: 10px;
+  }

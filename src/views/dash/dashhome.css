@@ -1,0 +1,56 @@
+form .form-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    max-width: 90%;
+    margin-bottom: 10px;
+  }
+ form .form-input > input, form .form-input > .options, form .form-input > textarea {
+    width: 370px;
+    max-width: 100%;
+    font-size: 14px;
+    color: #f7951d;
+    border: 2px solid #f7951d;
+    border-radius: 30px;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 20px;
+    margin: 0 15px 15px 0;
+  }
+ form .form-input input::placeholder, form .form-input .options::placeholder, form .form-input textarea::placeholder {
+    color: #f7951d;
+  }
+ form .form-input-files {
+    margin: 0 15px 15px 0;
+    width: 370px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  form .form-input-files .files-card {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  form .form-input-files .files-card input {
+    cursor: pointer;
+  }
+  form .form-input-files .files-card input::-webkit-file-upload-button {
+    background: #cccccc;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 30px;
+    color: #7a7a7a;
+    cursor: pointer;
+  }
+  form .form-input-files .files-card label {
+    color: #f7951d;
+    font-weight: 700;
+    font-size: 14px;
+    padding-bottom: 2px;
+  }

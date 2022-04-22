@@ -1,0 +1,156 @@
+@import 'footer';
+@import 'header';
+
+.category {
+    .container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding: 5rem 0;
+        min-height: 30px;
+        background: linear-gradient(180deg, #cd3732, #dd5b2c, #f48e1e);
+        overflow: hidden;
+
+        .bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            overflow: hidden;
+            margin-top: 20px;
+
+            .img-left,
+            .img-right {
+                width: 330px
+            }
+        }
+
+        .title {
+            position: relative;
+
+            img {
+                position: absolute;
+                width: 60px;
+                opacity: .3;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            h2 {
+                font-family: 'Montserrat Alternates', sans-serif;
+                color: $white;
+                font-weight: 700;
+                font-size: 35px;
+                text-align: center;
+            }
+        }
+    }
+
+    .slides {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5rem 0;
+
+        .center {
+            width: 75%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: rgba($color: $dark, $alpha: 0.15) 0 1px 4px 0;
+            transition: .3s ease;
+
+            &-img {
+                background: $orange;
+                border-radius: 10px;
+                padding: 10px;
+            }
+
+            &-map {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 5px 0;
+
+                h3 {
+                    font-weight: 700;
+                }
+
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 15px;
+                    }
+
+                    span {
+                        font-size: 13px;
+                        color: $blue;
+                    }
+                }
+            }
+
+            &-star {
+                img {
+                    width: 15px;
+                    background: $orange;
+                    border-radius: 50%;
+                    padding: 3px;
+                }
+
+                img:last-child,
+                img:nth-child(4) {
+                    background: $gray;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                background: $red;
+                color: $white;
+                border: none;
+                border-radius: 30px;
+                overflow: hidden;
+                font-weight: 500;
+                padding: 8px;
+                margin: 10px 0;
+                border: 2px solid $red;
+                transition: .3s ease;
+
+                &:hover {
+                    color: $red;
+                    background: $white;
+                }
+            }
+
+            &:hover {
+                transform: translateY(10px);
+            }
+        }
+    }
+}

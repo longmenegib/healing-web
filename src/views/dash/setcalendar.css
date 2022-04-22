@@ -1,0 +1,27 @@
+ .right-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 2rem 0; */
+  }
+   .right-body .center {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap; */
+  }
+   .right-body img {
+    width: 25%;
+  }
+
+  @media (max-width: 676px) {
+    .center{
+      display: flex;
+      flex-direction: column;
+    }
+    .datepicker{
+      width: 100%;
+    }
+  }

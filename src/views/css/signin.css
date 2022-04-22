@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+
+.sigin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sigin .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2.5rem 0;
+}
+.sigin .title {
+  position: relative;
+  margin: 2rem 0;
+}
+.sigin .title img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sigin .title h2 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #000;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.sigin form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sigin form .text {
+  margin: 10px 0;
+  width: 400px;
+  max-width: 90%;
+}
+.sigin form .text h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align-last: left;
+}
+.sigin form .text h3 a {
+  color: #f7951d;
+}
+.sigin form .form-input {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90%;
+}
+.sigin form .form-input input {
+  width: 100%;
+  font-size: 15px;
+  color: #f7951d;
+  border: 2px solid #f7951d;
+  border-radius: 30px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+.sigin form .form-input input::placeholder {
+  color: #f7951d;
+}
+.sigin form .buttons {
+  margin-top: 10px;
+}
+.sigin form .buttons button {
+  cursor: pointer;
+  min-width: 100px;
+  background: #fff;
+  color: #f7951d;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 10px;
+  margin-bottom: 5px;
+  transition: 0.3s ease;
+}
+.sigin form .buttons button:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px 0;
+}
+.sigin form .buttons button[type=submit] {
+  margin-right: 5px;
+  background: #f7951d;
+  color: #fff;
+}

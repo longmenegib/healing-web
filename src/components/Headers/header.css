@@ -1,0 +1,113 @@
+.header-header .aside {
+  max-width: 100%;
+  justify-content:space-between;
+  padding: 20px 0;
+  align-items: flex-start;
+  margin-left: 40px;
+  flex-direction: row;
+  display: fixed;
+}
+.header-header .aside .center {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.header-header .aside-right img {
+  width: 200px;
+}
+.header-header .aside-left {
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+.header-header .aside-left div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-header .aside-left img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.header-header .aside-left .line {
+  height: 1px;
+  width: 20px;
+  transform: rotate(90deg);
+  background: #000;
+}
+.header-header .navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background: #f7951d;
+  border: 1px solid #f7951d;
+  transition: all .7s ease-in;
+}
+.header-header .navigation .left {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header-header  {
+ position: fixed;
+ z-index: 100;
+ width: 100%;
+ background-color: white;
+}
+.header-header  li {
+  padding: 10px;
+  transition: 0.3s ease;
+}
+.header-header  li a {
+  color: black;
+  font-weight: 500;
+}
+.header-header .navigation-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-header .navigation-right li {
+  border-right: 2px solid #f7951d;
+  padding: 10px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+.header-header .navigation-right li a {
+  color: #f7951d;
+  font-weight: 600;
+}
+
+/* .navigation{
+  width: 100%;
+  min-height: 6vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  transition: all .7s ease-in;
+} */
+
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+  z-index: 100;
+}
+.logo img{
+  width: 50px;
+}
+@media (max-width: 567px){
+  .header-header .aside-left{
+    justify-content: center;
+    margin-top: 38px;
+    margin-left: -200px;
+  }
+}

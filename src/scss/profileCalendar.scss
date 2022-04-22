@@ -1,0 +1,496 @@
+@import 'footer';
+@import 'header';
+
+.profileCalendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0;
+
+        &-header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .header-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $orange;
+                border-radius: 10px;
+                width: 250px;
+                height: 250px;
+
+                img {
+                    width: 50%;
+                }
+            }
+
+            .header-title {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                border-radius: 10px;
+                padding: 10px;
+                margin-left: 10px;
+                overflow: hidden;
+
+                .card-map {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    h3 {
+                        font-weight: 700;
+                        font-size: 20px;
+                        padding-right: 5px;
+                    }
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            width: 15px;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            color: $blue;
+                        }
+                    }
+                }
+
+                .card-contact {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 10px 0;
+
+                    li {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 10px;
+
+                        img {
+                            width: 30px;
+                            background: $red;
+                            border-radius: 50%;
+                            padding: 6px;
+                            margin-right: 5px;
+                        }
+
+                        span {
+                            color: #7a7a7a;
+                        }
+                    }
+                }
+
+                .card-star {
+                    margin: 5px 0;
+
+                    img {
+                        width: 15px;
+                        background: $orange;
+                        border-radius: 50%;
+                        padding: 3px;
+                    }
+
+                    img:last-child,
+                    img:nth-child(4) {
+                        background: $gray;
+                    }
+                }
+
+                p {
+                    font-size: 13px;
+                }
+
+                button {
+                    cursor: pointer;
+                    background: $red;
+                    color: $white;
+                    border: none;
+                    border-radius: 30px;
+                    overflow: hidden;
+                    font-weight: 500;
+                    padding: 8px;
+                    margin: 10px 0;
+                    border: 2px solid $red;
+                    transition: .3s ease;
+
+                    &:hover {
+                        color: $red;
+                        background: $white;
+                    }
+                }
+            }
+        }
+
+        &-footer {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .footer-left {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                width: 250px;
+
+                .card {
+                    h3 {
+                        width: 100%;
+                        color: #7a7a7a;
+                        font-size: 16px;
+                        padding: 2rem 0 1.5rem 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        span {
+                            margin-left: 5px;
+                            display: inline-block;
+                            width: 100%;
+                            height: 1px;
+                            background: $gray;
+                        }
+                    }
+
+                    p {
+                        font-size: 13px;
+                    }
+
+                    button {
+                        cursor: pointer;
+                        background: $orange;
+                        color: $white;
+                        border: none;
+                        border-radius: 30px;
+                        overflow: hidden;
+                        font-weight: 500;
+                        padding: 8px;
+                        margin-top: 20px;
+                        border: 2px solid $orange;
+                        transition: .3s ease;
+
+                        &:hover {
+                            color: $orange;
+                            background: $white;
+                        }
+                    }
+
+                    .box {
+                        width: 250px;
+                        height: 200px;
+                        background: #eeeeee;
+                        border-radius: 10px;
+                        overflow-y: scroll;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+
+                        .list {
+                            cursor: pointer;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 10px 10px;
+
+                            &-text {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                justify-content: flex-start;
+
+                                h3 {
+                                    font-weight: 700;
+                                    font-size: 12px;
+                                    color: $dark;
+                                    padding: 0;
+                                    margin: 0;
+                                    display: flex;
+                                    align-items: flex-start;
+                                    justify-content: flex-start;
+                                }
+
+                                p {
+                                    font-size: 13px;
+                                    text-align: left;
+                                    padding: 0;
+                                    margin: 0;
+                                }
+                            }
+
+                            .card-star {
+                                img {
+                                    width: 10px;
+                                    background: $orange;
+                                    border-radius: 50%;
+                                    padding: 2px;
+                                }
+
+                                img:last-child,
+                                img:nth-child(4) {
+                                    background: $gray;
+                                }
+                            }
+                        }
+
+                        &::-webkit-scrollbar {
+                            background: #7a7a7a;
+                            width: 5px;
+                            border-radius: 10px;
+                            padding: 10px;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background: #eeeeee;
+                            border-radius: 20px;
+                        }
+                    }
+                }
+
+            }
+
+            .footer-right {
+                width: calc(100% - 250px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 0.5rem;
+                padding: 0 10px;
+
+                .right-header {
+                    width: 100%;
+                    border-bottom: 1px solid $gray;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .center {
+                        width: 80%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+
+                    li {
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 5px;
+                        margin-right: 2rem;
+
+                        img {
+                            margin-right: 5px;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            color: #7a7a7a;
+                        }
+
+                        &:hover {
+                            background: rgba($color: $orange, $alpha: .1);
+                        }
+                    }
+
+                    li.active {
+                        span {
+                            color: $orange;
+                        }
+
+                        border-bottom: 2px solid $orange;
+                    }
+                }
+
+                .right-body {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    margin: 2rem 0;
+                   // background: #000;
+
+                    .center {
+                        width: 80%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-wrap: wrap;
+                    }
+
+                    .hours {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        div {
+                            width: 220px;
+                            max-width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-wrap: wrap;
+
+                            .hour {
+                                margin: 5px;
+                                width: 100px;
+                                font-size: 15px;
+                                cursor: pointer;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 0.4rem;
+                                border: 1px solid $dark;
+                                border-radius: 15px;
+                                font-weight: 500;
+                                color: $dark;
+                                transition: .3s ease;
+
+                                &:hover {
+                                    color: $white;
+                                    background: linear-gradient(180deg, #cd3732, #f48e1e);
+                                    border: none;
+                                }
+                            }
+                        }
+
+                        button {
+                            width: 170px;
+                            cursor: pointer;
+                            background: $blue;
+                            color: $white;
+                            border: none;
+                            border-radius: 30px;
+                            overflow: hidden;
+                            font-weight: 500;
+                            padding: 8px;
+                            margin-top: 20px;
+                            border: 2px solid $blue;
+                            transition: .3s ease;
+
+                            &:hover {
+                                color: $blue;
+                                background: $white;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.calendar {
+    width: 450px;
+    max-width: 100%;
+    padding: 0 1rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: $white;
+    box-shadow: 0px 0px 15px 4px rgba($color: $orange, $alpha: .1);
+
+}
+
+.month {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 30px;
+    text-align: center;
+
+    .text {
+
+        h2 {
+            font-size: 30px;
+            color: $orange;
+            font-weight: 900;
+        }
+        p{
+            color: $orange;
+        }
+    }
+}
+
+.weekdays {
+    color: #fff;
+    padding-bottom: 7px;
+    display: flex;
+    border-bottom: 1px solid $gray;
+}
+
+.days {
+    cursor: pointer;
+    font-weight: 300;
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weekdays div,
+.days div {
+    text-align: center;
+    width: 14.28%;
+}
+
+.days div {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    transition: all 0.4s;
+}
+
+.prev_date {
+    color: #999;
+}
+
+.today {
+    border-radius: 30px;
+    background: linear-gradient(180deg, #cd3732, #f48e1e);
+    color: #fff;
+}
+
+.days div:hover {
+    background: #f1f1f1;
+    color: $dark;
+}
+
+.prev,
+.next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 23px;
+    transition: all 0.4s;
+}
+
+.prev:hover,
+.next:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,21 @@
+.imagess {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+.imagess .center {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+.imagess img {
+    width: 25%;
+  }
+
+  .gallery-buttons{
+      display: flex;
+  }

@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+.footer .container {
+  background: #cc3333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.footer .container div {
+  position: relative;
+}
+.footer .container div img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer .container div h2 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.footer .container h3 {
+  color: #fff;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+}
+.footer .container .subscribe {
+  position: relative;
+  margin-top: 1.5rem;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #000;
+}
+.footer .container .subscribe input {
+  padding: 15px 35% 15px 20px;
+  outline: none;
+  overflow: hidden;
+  border: none;
+  width: 100%;
+}
+.footer .container .subscribe button {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  background: #3399cc;
+  color: #fff;
+  font-weight: 500;
+  width: 30%;
+  height: 100%;
+  border: none;
+}
+.footer .copyright {
+  background: #2f2338;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .copyright p {
+  font-size: 15px;
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+  background: #fff;
+}
+
+body::-webkit-scrollbar {
+  background: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #f7951d;
+  border-radius: 10px;
+}
+
+.header .aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.header .aside .center {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.header .aside-right img {
+  width: 300px;
+}
+.header .aside-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .aside-left img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.header .aside-left .line {
+  height: 1px;
+  width: 20px;
+  transform: rotate(90deg);
+  background: #000;
+}
+.header .navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7951d;
+  border: 1px solid #f7951d;
+}
+.header .navigation .left {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .navigation-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.header .navigation-left li {
+  padding: 10px;
+  transition: 0.3s ease;
+}
+.header .navigation-left li a {
+  color: #fff;
+  font-weight: 500;
+}
+.header .navigation-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .navigation-right li {
+  border-right: 2px solid #f7951d;
+  padding: 10px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+.header .navigation-right li a {
+  color: #f7951d;
+  font-weight: 600;
+}
+
+.sigup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sigup .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2.5rem 0;
+}
+.sigup .title {
+  position: relative;
+  margin: 2rem 0;
+}
+.sigup .title img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sigup .title h2 {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #000;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+}
+.sigup form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sigup form .text {
+  margin: 10px 0 10px 10px;
+  width: 800px;
+  max-width: 90%;
+}
+.sigup form .text h3 {
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align-last: left;
+}
+.sigup form .text h3 a {
+  color: #f7951d;
+}
+.sigup form .form-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 800px;
+  max-width: 90%;
+  margin-bottom: 10px;
+}
+.sigup form .form-input > input, .sigup form .form-input > .options, .sigup form .form-input > textarea {
+  width: 370px;
+  max-width: 100%;
+  font-size: 14px;
+  color: #f7951d;
+  border: 2px solid #f7951d;
+  border-radius: 30px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 20px;
+  margin: 0 15px 15px 0;
+}
+.sigup form .form-input input::placeholder, .sigup form .form-input .options::placeholder, .sigup form .form-input textarea::placeholder {
+  color: #f7951d;
+}
+.sigup form .form-input-files {
+  margin: 0 15px 15px 0;
+  width: 370px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sigup form .form-input-files .files-card {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.sigup form .form-input-files .files-card input {
+  cursor: pointer;
+}
+.sigup form .form-input-files .files-card input::-webkit-file-upload-button {
+  background: #cccccc;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 30px;
+  color: #7a7a7a;
+  cursor: pointer;
+}
+.sigup form .form-input-files .files-card label {
+  color: #f7951d;
+  font-weight: 700;
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+.sigup form .form-pay {
+  position: relative;
+  width: 800px;
+  max-width: 90%;
+  margin-top: 1rem;
+}
+.sigup form .form-pay label {
+  color: #f7951d;
+  font-weight: 700;
+}
+.sigup form .form-pay p {
+  font-size: 13px;
+  padding-top: 5px;
+}
+.sigup form .form-pay .control {
+  display: inline-block;
+}
+.sigup form .form-pay .control input[type=checkbox] {
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid #f7951d;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sigup form .form-pay .control input[type=checkbox]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #f7951d;
+  border-radius: 50%;
+}
+.sigup form .form-pay .control input[type=checkbox]:checked::before {
+  transform: scale(1);
+}
+.sigup form .buttons {
+  width: 800px;
+  max-width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.sigup form .buttons button {
+  cursor: pointer;
+  min-width: 120px;
+  background: #fff;
+  color: #f7951d;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 10px;
+  margin-bottom: 5px;
+  transition: 0.3s ease;
+  box-shadow: rgba(247, 149, 29, 0.15) 0 1px 10px 0;
+}
+.sigup form .buttons button[type=submit] {
+  margin-left: 5px;
+  background: #f7951d;
+  color: #fff;
+}
