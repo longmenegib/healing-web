@@ -126,23 +126,23 @@ export default function SearchResult() {
             {results.length < 1 && (
             <div style={{width: '100%', flexDirection: 'column', alignItems: 'center'}}>
                 <p style={{ fontSize: 18, fontWeight: '600', color: 'gray' }}>No provider available for this category around you</p>
-                <img src='./../assets/sad_emoji.png' style={{}} />
+                <img src='../assets/sad_emoji.png' style={{}} />
             </div> 
             )}
             {results.map((ele)=>{
                                 return(
                 <div class="home-card" onClick={()=>clickCategory(ele.id)}>
                     <div class="home-card-img">
-                        <img src={ele.properties.logo || "../assets/image/group-1.svg"} alt=""/>
+                        <img src={ele.properties.logo || "../assets/image/group-1.svg"} alt="" style={{width: '100%', objectFit: 'cover', height: '100px'}}/>
                     </div>
                     <div class="home-card-map">
-                        <h3>kdjkdj
-                            {/* {ele.properties.label} {ele.id === account.id ? ' (You) ' : ''} */}
+                        <h3>
+                            {ele.properties.label} {ele.id === account.id ? ' (You) ' : ''}
                         </h3>
                         <div>
                             <img src="../assets/icons/map.svg" alt=""/>
-                            <span>fdfdfdf
-                                {/* {ele.properties.label} */}
+                            <span>
+                                {ele.properties.label}
                             </span>
                         </div>
                     </div>

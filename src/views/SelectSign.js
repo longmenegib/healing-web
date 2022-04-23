@@ -41,7 +41,7 @@ export default function SelectSign() {
               </div> */}
 
               <div class="home-cards" style={{marginTop: '30px'}}>
-                  <div style={{width: '50%', margin: 'auto'}}>
+                  <div>
                     <div class="home-card" 
                     // style={{backgroundColor: '#f7951d'}}
                     onClick={()=> sign(1)}

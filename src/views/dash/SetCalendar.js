@@ -107,7 +107,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
     //   toggle={()=> setopenCalendar(false)}
       isOpen={openCalendar}
       onClosed={()=> setopenCalendar(false)}
-    //   size=''
+      size='lg'
   >
       {/* <ModalHeader toggle={function noRefCheck(){}}>
         Modal title
@@ -119,7 +119,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                     <div className="" style={{position: 'absolute', right: '10px'}} onClick={()=> setopenCalendar(false)}>
                         <FontAwesomeIcon className="iconss" icon={faClose} size="2x"/>
                     </div>
-                    <h3>Set Calendar <span></span></h3>
+                    <h3 style={{textAlign: 'center'}}>Set Calendar <span></span></h3>
                     <div className="right-body">
                         <div className="center">
                             <DatePicker onChange={onChange} className="datepicker"/>

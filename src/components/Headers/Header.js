@@ -66,13 +66,24 @@ const Header = () => {
                             </>
                         )}
                     {/* </ul> */}
+
+
+
+
+
                     <div className="line"></div>
+
+
+
+                    
+
+
                     {!isAuthenticate && (<div>
-                        <img src="/assets/icons/user.svg" alt="user"/>
+                        <img src="/assets/icons/user.svg" alt="user" className="imageUser"/>
                         <span><a href="/signin">Sign in</a></span>
                     </div>)}
                     {isAuthenticate && (<div onClick={logout} style={{cursor: 'pointer'}}>
-                        <img src="/assets/icons/user.svg" alt="user"/>
+                        <img src="/assets/icons/user.svg" alt="user" className="imageUser"/>
                         <span><a>Log out</a></span>
                     </div>)}
                     {!isAuthenticate && (
@@ -80,6 +91,7 @@ const Header = () => {
                         className="button-add"
                         onClick={submitEmail}
                         style={{display: 'flex', justifyContent: 'center', marginRight: -40, marginLeft: 30}}
+                        size='sm'
                     >
                         Join as provider
                     </Button>

@@ -132,9 +132,9 @@ export default function Category() {
                 <h2>{type}</h2>
                 <img src={images[num]} alt=""/>
             </div>
-            <div style={{marginTop: 20}}>
+            {/* <div style={{marginTop: 20}}>
                 <p style={{color: '#ffe'}}>Book with thousands of holistic provider near you.</p>
-            </div>
+            </div> */}
             <div className="subscribe">
                   <input value={item} onChange={(e)=> setItem(e.target.value)} type="text" name="item" id="item" placeholder="Symptoms or illness"/>
                   <button onClick={search}><img src="/assets/icons/search.svg" alt="seach"/></button>
@@ -145,7 +145,7 @@ export default function Category() {
             {results.length < 1 && (
             <div style={{width: '100%', flexDirection: 'column', alignItems: 'center'}}>
                 <p style={{ fontSize: 18, fontWeight: '600', color: 'gray' }}>No provider available for this category around you</p>
-                <img src='./../assets/sad_emoji.png' style={{}} />
+                {/* <img src='./../assets/sad_emoji.png' style={{}} /> */}
             </div> 
             )}
             {results.map((ele)=>{

@@ -388,7 +388,7 @@ body::-webkit-scrollbar-thumb {
   flex-wrap: wrap;
   margin-bottom: 5rem;
   /* flex-direction: column; */
-
+  
 }
 .slides .home-card {
   width: 250px;
@@ -478,6 +478,12 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 
+/* .headderrr{
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+} */
+
 @media (max-width: 567px) {
   .profile-card-contact span{
     display: none;
@@ -494,7 +500,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     width: 100vw;
   }
-  .center {
+  .profileGallery .center {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -523,5 +529,9 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   width: 250px;
   margin-top: -100px;
+  }
+  .profileGallery .container-header .header-img {
+    width: 150px;
+    height: 150px;
   }
 }

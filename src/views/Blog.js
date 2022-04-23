@@ -86,7 +86,7 @@ export default function Blog() {
             
             {/* blog section */}
             <section className="blog-section">
-                <h1>Get the best articles</h1>
+                <h3>Get the best articles</h3>
                 <Row style={{display: 'flex', alignItems: 'stretch'}}>
                     
                     {blogs.map((ele)=>{

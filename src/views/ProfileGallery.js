@@ -70,6 +70,8 @@ export default function ProfileGallery() {
   const [detail, setDetail] = useState({
       properties:{
         reviews:[],
+        photos:[],
+        categories:[]
       }
   });
 
@@ -92,6 +94,7 @@ export default function ProfileGallery() {
     const [offers, setOffers] = useState([]);
 
     const [showAddreview, setShowaddreview ] = useState(false);
+    const [descript, setDescript] = useState(false)
 
   useEffect(()=>{
     getDetails();
@@ -337,9 +340,15 @@ const ratingChanged = (newRating) => {
     }
   }
 
-  const openBookingSet = (elem)=>{
-    setSelectedOffer(elem);
+  const openBookingSet = ()=>{
+    setDescript(false);
     setOpenBooking(true);
+
+  }
+
+  const openDescript = (elem)=>{
+    setDescript(true);
+    setSelectedOffer(elem);
   }
 
   const OrderPayModal = useMemo(()=>{
@@ -409,7 +418,6 @@ const ratingChanged = (newRating) => {
                 onClick={submitReview}
                 disabled={showAddreview}
             >
-               
                 {showAddreview ?
                     <Spinner style={{ width: '1.5rem', height: '1.5rem', color: 'white' }}
                     children={false} />
@@ -419,7 +427,7 @@ const ratingChanged = (newRating) => {
             </Button>
             {' '}
             <Button onClick={()=> setOpenReview(false)}>
-                Cancel 
+                Cancel
             </Button>
             </ModalFooter>
         </Modal>
@@ -480,6 +488,53 @@ const ratingChanged = (newRating) => {
             </ModalFooter>
         </Modal>
         )
+    });
+
+    const OfferDescription= useMemo(()=>{
+        return(
+            <Modal
+                // toggle={function noRefCheck(){}}
+                isOpen={descript}
+                onClosed={()=> setDescript(false)}
+                size="lg"
+            >
+                <ModalHeader style={{flex: 1}}>
+                    <div className="headderrr" style={{flex: 1}}>
+                        <div>
+                            Offer Description
+                        </div>
+                        <div style={{alignSelf: 'flex-end', width: '50%'}}>
+                        <Button
+                            className="button-add"
+                            // onClick={openBookingSet}
+                        >
+                            ${selectedOffer.price}
+                        </Button>
+                        </div>
+                    </div>
+                </ModalHeader>
+                <ModalBody>
+                    <div className="">
+                        <h3>{selectedOffer.category}</h3>
+                        <div>
+                            {selectedOffer.description}
+                        </div>
+                    </div>
+                </ModalBody>
+                <ModalFooter>
+                <Button
+                    className="button-add"
+                    onClick={openBookingSet}
+                >
+                    Book now
+                </Button>
+                
+                <Button onClick={()=> setDescript(false)}>
+                    Cancel
+                </Button>
+                </ModalFooter>
+            </Modal>
+        )
     })
 
 
@@ -489,11 +544,12 @@ const ratingChanged = (newRating) => {
       {AddReview}
       {OrderPayModal}
       {BookingCalendar}
+      {OfferDescription}
       <div className="profileGallery" style={{paddingTop: 120}}>
         <div className="container-profile">
             <div className="container-header">
                 <div className="header-img">
-                    <img src={detail.properties.logo || "../assets/image/group-1.svg"} alt=""/>
+                    <img src={detail.properties.logo || "../assets/image/group-1.svg"} alt="" style={{width: '100%', objectFit: 'cover'}} />
                 </div>
                 <div className="header-title">
                     <div className="profile-card-map">
@@ -504,7 +560,7 @@ const ratingChanged = (newRating) => {
                         </div>
                     </div>
                     <div className="profile-card-star">
-                    {detail.properties.rating && (
+                    {detail.properties.rating >= 0 && (
                         <ReactStars
                         count={5}
                         size={24}
@@ -515,21 +571,13 @@ const ratingChanged = (newRating) => {
                     )}
                         
                     </div>
-                    <p>{detail.properties.category}</p>
+                    <p>{detail.properties.categories.join('-')}</p>
                     <div className="profile-card-contact">
                         <li><a href={`mailto: ${detail.properties.email}`}><img src="../assets/icons/mail.svg" alt=""/></a><span>Send a message</span></li>
                         <li><a href={`tel: ${detail.properties.phone}`}><img src="../assets/icons/phone.svg" alt=""/></a><span>Contact</span></li>
                     </div>
                 </div>
             </div>
-            {/* <div className='Descriptions'>
-                    <div className='gael'>
-                    <h4 > Description</h4>
-                        <p>
-                        {detail.properties.description}
-                    </p>
-                    </div>
-            </div> */}
             <div className="container-footer">
                 <div className="profile-card">
                         <h3>Description <span></span></h3>
@@ -585,14 +633,23 @@ const ratingChanged = (newRating) => {
                     <div className="right-body">
                         {select ?
                         <div className="center">
+                            {/* <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
                             <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
+                            <img src="../assets/icons/galleryGray.svg" alt=""/> */}
+                            <div className="imagess">
+                            <div className="center">
+                                {detail.properties.photos.map((img, index)=>{
+                                    return(
+                                        <img key={index} src={img.image || "./../assets/image/group-1.svg"} alt=""/>
+                                    )
+                                })}
+                                </div>
+                            </div>
                         </div>
                         :
                         <>
@@ -603,17 +660,17 @@ const ratingChanged = (newRating) => {
                                     return(
                                     <div key={index} className="home-card">
                                         <div className="home-card-img">
-                                            <img src={ele.illustration || "../assets/image/group-1.svg"} alt="" width="100%"/>
+                                            <img src={ele.illustration || "../assets/image/group-1.svg"} alt="" style={{width: '100%', objectFit: 'cover', height: '100px'}}/>
                                         </div>
                                         <div className="home-card-map">
-                                            <h3>{ele.category} </h3>
+                                            <h3 style={{textAlign: 'center', width: '100%'}}>{ele.category} </h3>
                                             <div style={{display: 'flex',flexDirection: 'column'}}>
                                                 <p>{ele.description.slice(0, 30)}...</p>
                                                 <h4>$ {ele.price}</h4>
                                             </div>
                                         </div>
                                     
-                                        <button onClick={()=>openBookingSet(ele)}>Buy now</button>
+                                        <button onClick={()=>openDescript(ele)}>Book now</button>
                                     </div>
                                     )}
                                     )}
@@ -622,7 +679,6 @@ const ratingChanged = (newRating) => {
                         </>
                         }
                     </div>
-
                     <div className="footer-left review-mobile">
                     <div className="profile-card">
                         <h3>Review <span></span></h3>

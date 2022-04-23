@@ -27,7 +27,7 @@ export default function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [category, setCategory] = useState([{id: 1, label: 'Select a category'}]);
+    const [category, setCategory] = useState([]);
     const [label, setLabel] = useState('');
     const [phone, setPhone] = useState('');
     const [tags, setTags] = useState('');
@@ -46,6 +46,7 @@ export default function Register() {
 
     const {signIn} = useContext(AuthContext);
     const animatedComponents = makeAnimated();
+    const [selectedItem, setSelectedItem] = useState([]);
 
     useEffect(()=>{
         getMarketCategory();
@@ -60,13 +61,23 @@ export default function Register() {
             .then(async res => {
                 // console.log(res.data.results);
                 if(res.data.results.length > 0){
-                    setCategory(res.data.results);
-                    setLabel(res.data.results[0].label);
+                    let arr = myfunction(res.data.results);
+                    
+                    setCategory(arr);
                 }
             }).catch(err => {
                 console.log(err);
             })
     }
+
+    function myfunction(arr) {
+        return arr.map(function(e) {
+          return {
+            label: e.label,
+            value: e.id
+          };
+        });
+      }
 
     function validatePhoneNumber(input_str) {
         var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -100,6 +111,15 @@ export default function Register() {
 
     const register = async(e)=>{
         e.preventDefault();
+
+        if(selectedItem.length < 1){
+            alert(
+                'Select at least one category'
+            )
+            return;
+        }
+        let result = selectedItem.map(({ value }) => value)
+        console.log(result);
 
         if(username && email && password && phone && tags && business &&
             states && address && city && zipcode && dob ){
@@ -156,7 +176,7 @@ export default function Register() {
                 console.log('date date', dob);
                 navigate('/register-subscription', {
                     state: {userinfos: userinfos, therapistinfo: therapistinfo,
-                    logo: logo, image: image, fileResponse: fileResponse, tags: tags
+                    logo: logo, image: image, fileResponse: fileResponse, tags: tags,  category: result
                     }
                 });
             },
@@ -171,11 +191,21 @@ export default function Register() {
         }
         
       }
-
-      const handleOptions = (e)=>{
-        console.log(e);
-      }
     
+      const styleSelect = {
+        control: base => ({
+          ...base,
+          border: '2px solid #f7951d',
+          boxShadow: 'none',
+          borderRadius: 30,
+          '&:hover': {
+            border: '2px solid #f7951d !important'
+         },
+         '&::placeholder':{
+             color: '#f7951d !important'
+         }
+        })
+      };
 
   return (
     <>
@@ -196,31 +226,29 @@ export default function Register() {
                     <input value={username} onChange={(e)=> setUsername(e.target.value)} type="text" name="username" id="username" placeholder="Username" required />
                     <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" name="email" id="email" placeholder="Email address" required />
                     <input value={password} onChange={(e)=> setPassword(e.target.value)} type="password" name="password" id="password" placeholder="Password" required />
-                    {/* <select className="options" value={label} onChange={(e)=> setLabel(e.target.value)}>
                    
-                    {category.map((ele)=>{
-                            return(
-                                <option key={ele.id} value={ele.label}>
-                                    {ele.label}
-                                </option>
-                            )
-                        })}
-                        
-                    </select> */}
+                    <Select
+                        defaultValue={[category[0]]}
+                        isMulti
+                        name="categories"
+                        options={category}
+                        className="basic-multi-select"
+                        classNamePrefix="select a category"
+                        onChange={(e)=> setSelectedItem(e)}
+                        styles={styleSelect}
+                        placeholder="Choose category"
+                    />
+
                     <input value={business} onChange={(e)=> setbusiness(e.target.value)} type="text" name="business" id="business" placeholder="Business name" required />
-                    <textarea value={descript} onChange={(e)=> setDescript(e.target.value)} type="text" name="Description" id="descr" placeholder="Description" required></textarea>
+                    <textarea value={descript} onChange={(e)=> setDescript(e.target.value)} type="text" name="Description" id="descr" placeholder="Business Description" required></textarea>
                     <input value={address} onChange={(e)=> setAddress(e.target.value)} type="text" name="address" id="address" placeholder="Address" required />
                     <input value={phone} onChange={(e)=> setPhone(e.target.value)} type="number" name="phone" id="phone" placeholder="Phone number" required />
                     <input value={states} onChange={(e)=> setStates(e.target.value)} type="text" name="state" id="state" placeholder="State" required />
                     <input value={city} onChange={(e)=> setCity(e.target.value)} type="text" name="city" id="city" placeholder="City" required />
                     <input value={zipcode} onChange={(e)=> setZipcode(e.target.value)} type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required />
-                    {/* <input value={booking_fee} onChange={(e)=> setBooking_fee(e.target.value)} type="text" name="booking_fee" id="booking_fee" placeholder="Booking Fee" required /> */}
-
-                    {/* <input value={name} onChange={(e)=> setName(e.target.value)} type="text"  placeholder="Name" required />
-                    <input value={address_1} onChange={(e)=> setAddress_1(e.target.value)} type="text"  placeholder="Address line 1" required />
-                    <input value={address_2} onChange={(e)=> setAddress_2(e.target.value)} type="text"  placeholder="Address line 2" required /> */}
+                   
                     <input value={tags} onChange={(e)=> setTags(e.target.value)} type="text"  placeholder="Tags (ex: headache, eyes pronblem...)" required />
-                    <input value={dob} onChange={(e)=> setDob(e.target.value)} type="date"  placeholder="Date of Birth" required />
+                    <input value={dob} onChange={(e)=> setDob(e.target.value)} type="date"  placeholder="Date of Birth " required />
                     <div className="form-input-files">
                         <div className="files-card">
                             <label htmlFor="company">Add your company logo</label>

@@ -170,7 +170,7 @@ const returnlightSar = (num)=>{
      <>
       <Header />
         <div className="home">
-          <div className="container-home" style={{paddingTop: 110}}>
+          <div className="container-home" style={{}}>
               <div className="bg">
                   <img src="/assets/image/bg-2.svg" alt="" className="img-left"/>
                   <img src="/assets/image/bg-2.svg" alt="" className="img-center"/>
@@ -178,7 +178,7 @@ const returnlightSar = (num)=>{
               </div>
  
               <div>
-                  <h2>Search and Book Holistic Provider near you</h2>
+                  <h2>Search and Book Holistic Providers near you</h2>
               </div>
               {/* <h4 style={{}}></h4> */}
               <ColourListTransition
@@ -239,10 +239,10 @@ const returnlightSar = (num)=>{
                         return (
                             <div className="home-card" key={ele.id}>
                                 <div className="home-card-img">
-                                    <img src={ele.properties.logo || "../assets/image/group-1.svg"} alt=""/>
+                                    <img src={ele.properties.logo || "../assets/image/group-1.svg"} alt="" style={{width: '100%', objectFit: 'cover', height: '100px'}}/>
                                 </div>
                                 <div className="home-card-map">
-                                    <h3>{ele.properties.label}</h3>
+                                    <h3 style={{textAlign: 'center', width: '100%'}}>{ele.properties.label}</h3>
                                     <div>
                                         <img src="/assets/icons/map.svg" alt=""/>
                                         <span>{ele.properties.address}</span>

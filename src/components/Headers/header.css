@@ -107,7 +107,16 @@
 @media (max-width: 567px){
   .header-header .aside-left{
     justify-content: center;
-    margin-top: 38px;
-    margin-left: -200px;
+    /* margin-top: 38px; */
+    /* margin-left: -200px; */
+  }
+  .header-header li a{
+    font-size: 12px;
+  }
+  .header-header .aside-right img{
+    width: 120px;
+  }
+  .imageUser{
+    display: none;
   }
 }

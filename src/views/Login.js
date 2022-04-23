@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 import { AuthContext } from '../App';
 import axios from './../utils/axios';
 import {deleteStorage, setInstorage, getFromStorage} from './../utils/Storage'
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Spinner } from 'reactstrap'
 
 export default function Login() {
 
@@ -19,11 +19,13 @@ export default function Login() {
   const [passErr, setpassErr] = useState('');
   const {signIn} = useContext(AuthContext);
   const [openModal, setOpenModal] = useState(false);
+  const [show, setShow] = useState(false);
 
     const login = async(e)=>{
       e.preventDefault();
         setEmailErr("");
         setpassErr("");
+        setShow(true);
         if(email && password){
             const data = {username: email, password: password }
               await axios.post('/user-api/custom/login', data, { withCredentials: false, timeout: 10000 })
@@ -39,12 +41,20 @@ export default function Login() {
                 navigate(`/`);
               })
               .catch(err => {
-                console.log(err);
+                // if(err.request){
+                //   alert(
+                //     `Network Error! Make sure you are connected`,
+                //   );
+                // }else{
                   alert(
                     `Wrong username or password`,
-                  )
+                  );
+                // }
+                console.log(err);
+                setShow(false);
               });
           }else{
+            setShow(false);
             alert(
               "All fields are required"
             );
@@ -123,9 +133,8 @@ export default function Login() {
   return (
     <>
       <Header />
-      {openEmail}
-      
     <div className="sigin" style={{paddingTop: 120}}>
+    {openEmail}
         <div className="center">
             <div className="title">
                 <h2>Sign in</h2>
@@ -135,14 +144,21 @@ export default function Login() {
             <form>
                 <div className="p">
                     <h3>Dont have an account ? <a href="signup-as">Sign up!</a></h3>
-                    <h3>Please fill in all the required fields correctly</h3>
+                    {/* <h3>Please fill in all the required fields correctly</h3> */}
                 </div>
                 <div className="form-input">
                     <input value={email} onChange={(e)=> setEmail(e.target.value)} type="text" name="username" id="username" placeholder="Username" />
                     <input value={password} onChange={(e)=> setPassword(e.target.value)} type="password" name="password" id="password" placeholder="Password" />
                 </div>
                 <div className="buttons">
-                    <button style={{backgroundColor: '#ff9933', color: 'white'}} onClick={login}>Login</button>
+                    <Button style={{backgroundColor: '#ff9933', color: 'white'}} disabled={show} onClick={login}>
+                    {show ?
+                    <Spinner style={{ width: '1.5rem', height: '1.5rem', color: 'white' }}
+                    children={false} />
+                    : 
+                    <span>Login</span>
+                }
+                    </Button>
                     <button onClick={openClick}>Forgot your password</button>
                 </div>
             </form>

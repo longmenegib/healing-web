@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb {
   
 }
 .home .container-home {
-  margin-top: 26px;
+  /* margin-top: 26px; */
   position: relative;
   width: 100%;
   display: flex;
@@ -129,7 +129,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  /* margin-bottom: 5px; */
 }
 .home .home-cards div .home-card {
   cursor: pointer;
@@ -143,6 +143,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   background: #cccccc;
   box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px 0;
+  margin-bottom: 20px;
   transition: 0.3s ease;
 }
 .home .home-cards div .home-card h2 {
@@ -191,7 +192,12 @@ body::-webkit-scrollbar-thumb {
 .home .slides .home-card-img {
   background: #f7951d;
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 .home .slides .home-card-map {
   display: flex;
@@ -253,6 +259,11 @@ body::-webkit-scrollbar-thumb {
   color: red !important;
 }
 
+@media (max-width: 768px) {
+  .home .container-home{
+    padding-top: 150px;
+  }
+}
 
 @media (max-width: 567px) {
   .profile-card-contact span{
@@ -290,5 +301,19 @@ body::-webkit-scrollbar-thumb {
   .profileGallery .container-footer .footer-left{
     display: none;
     
+  }
+  .home .home-cards div .home-card{
+    width: 150px;
+  }
+  .home .home-cards div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .home .home-cards {
+    width: 90%;
+  }
+  .home .container-home{
+    padding-top: 150px;
   }
 }

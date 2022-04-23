@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo }  from 'react'
-import { Modal, ModalHeader, FormGroup, Input, Button, Alert, Toast } from 'reactstrap'
+import { Modal, ModalHeader, FormGroup, Input, Button, Alert, Toast, ModalFooter } from 'reactstrap'
 import {deleteStorage, setInstorage, getFromStorage} from '../../utils/Storage';
 import axios from '../../utils/axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,19 +47,7 @@ const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer}
        >
            <ModalHeader>
                What services do you offer ?
-               <div className="" style={{position: 'absolute', right: '10px', top:'10px'}} onClick={()=> setOpenService(false)}>
-                    {/* <FontAwesomeIcon className="iconss" icon={faClose} size="1x"/> */}
-                    <Button
-                        className="button-add"
-                        onClick={()=> setOpenOffer(true)}
-                    >
-                        Add new offer
-                    </Button>
-                    {' '}
-                    <Button onClick={()=> setOpenService(false)}>
-                        Cancel
-                    </Button>
-                </div>
+               
             </ModalHeader>
           
             <div className="right-body">
@@ -76,7 +64,7 @@ const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer}
                                 return(
                                 <div key={index} className="home-card">
                                     <div className="home-card-img">
-                                        <img src={ele.illustration || "../assets/image/group-1.svg"} alt="" width="100%"/>
+                                        <img src={ele.illustration || "../assets/image/group-1.svg"} alt=""  style={{width: '100%', objectFit: 'cover', height: '100px'}}/>
                                     </div>
                                     <div className="home-card-map">
                                         <h3>{ele.category} </h3>
@@ -96,6 +84,21 @@ const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer}
                             </div>
                         </div>
                     </div>
+                    <ModalFooter>
+                    <div className="" style={{display: 'flex'}} onClick={()=> setOpenService(false)}>
+                    {/* <FontAwesomeIcon className="iconss" icon={faClose} size="1x"/> */}
+                    <Button
+                        className="button-add"
+                        onClick={()=> setOpenOffer(true)}
+                    >
+                        Add new offer
+                    </Button>
+              
+                    <Button onClick={()=> setOpenService(false)}>
+                        Cancel
+                    </Button>
+                </div>
+                    </ModalFooter>
       </Modal>
     )
 }

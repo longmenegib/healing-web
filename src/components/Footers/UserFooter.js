@@ -85,14 +85,14 @@ diagnosis, and treatment. This website, content, and products are for informatio
 
           </Nav>
         </Col>
-        <Col xl="6" style={{display: 'flex', justifyContent: 'right'}}>
+        <Col xl="6" sm = "12" style={{display: 'flex', justifyContent: 'center'}}>
           <div className=" justify-content-xl-end" style={{color: 'white'}}>
             © {new Date().getFullYear()}{" "}
             <span
               className="font-weight-bold ml-1"
-              style={{color: 'grey'}}
+              style={{color: 'grey', textAlign: 'center', width: '100%'}}
             >
-              Healing Market
+              Healing Marketplace
             </span>
           </div>
         </Col>

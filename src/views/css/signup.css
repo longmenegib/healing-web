@@ -12,6 +12,9 @@
   scroll-behavior: smooth;
 }
 
+input[value=""]::-webkit-datetime-edit{ color: transparent; }
+input:focus::-webkit-datetime-edit{ color: #000; }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -294,10 +297,28 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
   padding: 10px 20px;
   margin: 0 15px 15px 0;
+  background-color: white;
 }
 .sigup form .form-input input::placeholder, .sigup form .form-input .options::placeholder, .sigup form .form-input textarea::placeholder {
-  color: #f7951d;
+  color: #f7951d !important;
 }
+
+input[type="date"]::before {
+	color: #f7951d;
+	content: attr(placeholder);
+}
+input[type="date"] {
+	color: #ffffff;
+}
+input[type="date"]:focus,
+input[type="date"]:valid {
+	color: #f7951d;
+}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+	content: "" !important;
+}
+
 .sigup form .form-input-files {
   margin: 0 15px 15px 0;
   width: 370px;
@@ -346,6 +367,8 @@ body::-webkit-scrollbar-thumb {
 .sigup form .form-pay .control {
   display: inline-block;
 }
+
+
 .sigup form .form-pay .control input[type=checkbox] {
   appearance: none;
   margin: 0;
@@ -399,4 +422,18 @@ body::-webkit-scrollbar-thumb {
   margin-left: 5px;
   background: #f7951d;
   color: #fff;
+}
+
+.basic-multi-select{
+  width: 370px;
+  max-width: 100%;
+  font-size: 14px;
+  color: #f7951d;
+  /* border: 2px solid #f7951d; */
+  border-radius: 30px;
+  outline: none;
+  /* overflow: hidden; */
+  padding: 10px 20px;
+  margin: 0 15px 15px 0;
+  background-color: white;
 }

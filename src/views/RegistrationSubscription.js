@@ -29,7 +29,7 @@ const RegistrationSubscription = () => {
 function CheckoutForm({loadData}) {
 
    const { userinfos, therapistinfo,
-        logo, image, fileResponse, tags } = loadData;
+        logo, image, fileResponse, tags, category } = loadData;
        
 
   const [isPaymentLoading, setPaymentLoading] = useState(false);
@@ -164,13 +164,12 @@ function CheckoutForm({loadData}) {
                                 
                             }
                         }
-                        // if(!saveFee(response.data.therapist_id, response.data.key)){
-                        //     alert('Message',
-                        //     "Could not save booking fee");
-                        // } 
                         
                         if(tags){
                             saveTags(response.data.therapist_id, response.data.key);
+                        }
+                        if(category){
+                          saveCateogry(response.data.key)
                         }
 
                         let usertherapist = response.data;
@@ -304,24 +303,21 @@ const saveLogo = async(userid, token)=>{
     });
 }
 
-// const saveFee = async(userid, token)=>{
-//     let data = {
-//         therapist: userid,
-//         booking_fee: parseInt(booking_fee)
-//       }
-      
-//       console.log(data);
-//       await axios.post(`/booking-api/booking-fees/`, data, { headers: {"Authorization": `Token ${token}`} })
-//       .then(res => {
-//         console.log("fee added successfully")
-//         return true;
-//       })
-//       .catch(err =>{
-//            console.log(err)
-//            return false;
-//         }
-//       )
-// }
+const saveCateogry = async(token)=>{
+  let cate = {
+    category: category
+  }
+  await axios.post(`/market-api/therapists/add-categories`, cate, { headers: {"Authorization": `Token ${token}`}  })
+  .then(async res => {
+      console.log("category saved");
+
+      return true;
+  })
+  .catch(err => {
+      console.log("category not saved", err);
+      return false;
+  });
+}
 
 
   return (
