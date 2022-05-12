@@ -25,9 +25,7 @@ export default function Blog() {
       },[])
 
     const getBlogs = async()=>{
-        const user = getFromStorage("userToken");
-        const token = JSON.parse(user).key;
-        await axios.get('/blog-api/articles/', { headers: {"Authorization": `Token ${token}`} })
+        await axios.get('/blog-api/articles/')
         .then(res=>{
             console.log(res.data.results);
             
@@ -46,7 +44,7 @@ export default function Blog() {
                 
                 for (let i = 1; i <= numberOftime; i++) {
                 nextpage = i + 1;
-                axios.get(`/blog-api/articles/?page=${nextpage}`, { headers: {"Authorization": `Token ${token}`} })
+                axios.get(`/blog-api/articles/?page=${nextpage}`)
                 .then(res =>{
                     for (let i = 0; i < res.data.results.length; i++) {
                     moi.push(res.data.results[i]); 
@@ -82,7 +80,7 @@ export default function Blog() {
     return (
         <>
       <Header />
-        <div className="container blog" style={{paddingTop: 100}}>
+        <div className="container blog" style={{paddingTop: 120}}>
             
             {/* blog section */}
             <section className="blog-section">
@@ -100,7 +98,6 @@ export default function Blog() {
                                         <div className="blog-title">
                                             <p className="title">
                                                 {ele.author}
-                                                
                                             </p>
                                             <p style={{color: '#ff9933'}} className="date">
                                                 {ele.category}

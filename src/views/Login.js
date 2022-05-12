@@ -2,7 +2,7 @@ import React, {useState, useContext, useMemo} from 'react'
 import './css/signin.css'
 import Header from '../components/Headers/Header'
 import Footer from '../components/Footers/Footer'
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 
 import { AuthContext } from '../App';
 import axios from './../utils/axios';
@@ -12,6 +12,10 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Spinner } from 'rea
 export default function Login() {
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const datafrom = location.state || '';
+  console.log(datafrom)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,14 +42,17 @@ export default function Login() {
                 
                 setInstorage('userToken', JSON.stringify(user));
                 signIn();
-                navigate(`/`);
+                if(!datafrom){
+                  navigate('/')
+                }
+                if(datafrom.goto=== 'profile'){
+                  console.log('goooodddd');
+                  navigate(`/profile/${datafrom.link}`);
+                }else if(datafrom.goto==='article'){
+                  navigate(`/blog/article/${datafrom.link}`);
+                }
               })
               .catch(err => {
-                // if(err.request){
-                //   alert(
-                //     `Network Error! Make sure you are connected`,
-                //   );
-                // }else{
                   alert(
                     `Wrong username or password`,
                   );

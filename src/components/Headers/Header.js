@@ -52,33 +52,19 @@ const Header = () => {
                 <div className="aside-right">
                     <img src="/assets/image/logo.svg" alt="logo"/>
                 </div>
-                <div className="aside-left">
+                <div className="aside-left" style={{}}>
                     {/* <ul className="navigation-left"> */}
 
                     
                         <li><a href="/">HOME</a></li>
-                    
+                        <li><a href="/blog">BLOG</a></li>
                         {isAuthenticate && (<>
-                        
                             <li><a href="/dashboard">DASHBOARD</a></li>
-                            
-                            <li><a href="/blog">BLOG</a></li>
                             </>
                         )}
-                    {/* </ul> */}
-
-
-
-
-
                     <div className="line"></div>
 
-
-
-                    
-
-
-                    {!isAuthenticate && (<div>
+                    {!isAuthenticate && (<div className="signinHead">
                         <img src="/assets/icons/user.svg" alt="user" className="imageUser"/>
                         <span><a href="/signin">Sign in</a></span>
                     </div>)}
@@ -88,9 +74,9 @@ const Header = () => {
                     </div>)}
                     {!isAuthenticate && (
                     <Button
-                        className="button-add"
+                        className="button-add joinaspro"
                         onClick={submitEmail}
-                        style={{display: 'flex', justifyContent: 'center', marginRight: -40, marginLeft: 30}}
+                        style={{}}
                         size='sm'
                     >
                         Join as provider

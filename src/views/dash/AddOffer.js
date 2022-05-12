@@ -17,7 +17,8 @@ const styles = {
         flexDirection:'column',
         justifyContent: 'center',
         position: 'relative',
-        marginTop: '30px'
+        marginTop: '30px',
+        marginBottom: 20
     },
     cancelbtn:{
         width: '200px',
@@ -35,34 +36,9 @@ const styles = {
 }
 
 
-const AddOffer = ({setOpenOffer, openOffer})=>{
-
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [offer, setOffer] = useState("");
-    const [image, setImage] = useState([]);
-    const [category, setCategory] = useState([{id: 1, label: 'Select a category'}]);
-
-    useEffect(()=>{
-        getMarketCategory();
-        return ()=>{
-           
-        }
-    }, []);
-
-    const getMarketCategory = async()=>{
-        console.log('getting the category')
-        axios.get('/market-api/categories/', { withCredentials: false })
-            .then(async res => {
-                // console.log(res.data.results);
-                if(res.data.results.length > 0){
-                    setCategory(res.data.results);
-                    setOffer(res.data.results[0].label);
-                }
-            }).catch(err => {
-                console.log(err);
-            })
-    }
+const AddOffer = ({setOpenOffer, openOffer, setSelectedOffer, selectedOffer, getOffers, setOpenService,
+price, description, offer, image, category, setPrice, setDescription, setOffer, setImage, setCategory, offername, setOffername,
+typeOffer, setTypeOffer})=>{
 
     const submitOffer = async()=>{
         const userToken = getFromStorage('userToken');
@@ -87,10 +63,54 @@ const AddOffer = ({setOpenOffer, openOffer})=>{
             .then(async res => {
                 console.log(res.data);
                 alert("Offer added successfully");
+                getOffers();
             }).catch(err => {
                 console.log('error from offer',err);
                 alert("Could not saved Offer");
             })
+    }
+
+    const submitOfferUpdate = async()=>{
+        const userToken = getFromStorage('userToken');
+        let token = JSON.parse(userToken).key;
+        let payload = {
+            category: offer,
+            price: parseInt(price),
+            description: description,
+            illustration: image
+        }
+        let filedata = new FormData();
+        filedata.append('category', offer);
+        filedata.append('description', description);
+        filedata.append('price', parseInt(price));
+        if(image){
+            filedata.append('illustration', image);
+        }
+    
+        console.log(payload)
+        await axios.patch(`/market-api/offers/${selectedOffer.id}/`, filedata, { headers: {"Authorization": `Token ${token}`,
+        "Content-Type": "multipart/form-data"}})
+            .then(async res => {
+                console.log(res.data);
+                alert("Offer updated successfully");
+                closeAdd();
+                getOffers();
+                setOpenService(true)
+            }).catch(err => {
+                console.log('error from offer',err);
+                alert("Could not update Offer");
+            })
+    }
+
+
+    const closeAdd = ()=>{
+        setOpenOffer(false);
+        setTypeOffer("add");
+        setSelectedOffer({});
+        setDescription('');
+        setPrice('');
+        setOffer('');
+        setOffername('');
     }
 
     return(
@@ -101,7 +121,7 @@ const AddOffer = ({setOpenOffer, openOffer})=>{
        >
            <ModalHeader>
                Create a new offer
-               <div className="" style={{position: 'absolute', right: '10px', top:'10px'}} onClick={()=> setOpenOffer(false)}>
+               <div className="" style={{position: 'absolute', right: '10px', top:'10px'}} onClick={()=> closeAdd()}>
                     {/* <FontAwesomeIcon className="iconss" icon={faClose} size="1x"/> */}
                     {/* <Button
                         className="button-add"
@@ -118,36 +138,50 @@ const AddOffer = ({setOpenOffer, openOffer})=>{
           
             <div className="right-body">
                         <div className="center">
-                            <div class="hours" style={{width: '100%'}}>
+                            <div class="hours" style={{width: '100%', marginBottom: 20}}>
                             <form>
                                 {/* <div className="p">
                                     <h3>Dont have an account ? <a href="signup-as">Sign up!</a></h3>
                                     <h3>Please fill in all the required fields correctly</h3>
                                 </div> */}
                                 <div className="form-input">
-                                    <select className="options" value={offer} onChange={(e)=> setOffer(e.target.value)}>
-                                    {category.map((ele)=>{
-                                            return(
-                                                <option key={ele.id} value={ele.id}>
-                                                    {ele.label}
-                                                </option>
-                                            )
-                                        })}
-                                        
-                                    </select>
+                                    {/* <div> */}
+                                        <select className="options" value={offer} onChange={(e)=> setOffer(e.target.value)}>
+                                        {category.map((ele)=>{
+                                                return(
+                                                    <option key={ele.id} value={ele.id}>
+                                                        {ele.label}
+                                                    </option>
+                                                )
+                                            })}
+                                            
+                                        </select>
+                                        <br/>
+                                        {typeOffer==='update' && 
+                                                <span style={{color: 'black'}}>{selectedOffer.category}</span>}
+                                    {/* </div> */}
+                                    {/* <input value={offername} onChange={(e)=> setOffername(e.target.value)} type="text" name="name" id="name" placeholder="Label" /> */}
                                     <input value={price} onChange={(e)=> setPrice(e.target.value)} type="text" name="price" id="price" placeholder="Price" />
                                     <textarea value={description} onChange={(e)=> setDescription(e.target.value)} type="description" name="description" id="description" placeholder="Offer Description"></textarea>
                                     <div className="form-input-files">
                                         <div className="files-card">
                                             <label htmlFor="company">Offer Photo</label>
                                             <input onChange={(e)=> setImage(e.target.files[0])} type="file" name="company" id="company" className="choose-file" required />
+                                            {typeOffer==='update' && 
+                                            <span style={{color:'black'}}>{selectedOffer.illustration}</span>}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="buttons">
-                                    <Button style={{backgroundColor: '#ff9933', color: 'white', border: 'none'}} onClick={submitOffer}>
-                                        Save Offer
+                                    {typeOffer==='add' ?
+                                         <Button style={{backgroundColor: '#ff9933', color: 'white', border: 'none'}} onClick={submitOffer}>
+                                            Save Offer
+                                        </Button>
+                                    :
+                                    <Button style={{backgroundColor: '#ff9933', color: 'white', border: 'none'}} onClick={submitOfferUpdate}>
+                                        Update Offer
                                     </Button>
+                                    }
                                     {/* <button onClick={()=>{}}>Cancel</button> */}
                                 </div>
                             </form>

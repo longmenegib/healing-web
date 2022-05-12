@@ -12,8 +12,6 @@ export default function Article() {
     const navigate = useNavigate();
     const {id} = useParams();
     const [focusId, setFocusId] = useState(id)
-    const userToken = getFromStorage('userToken');
-    const token = JSON.parse(userToken).key;
     // let id = JSON.parse(userToken).id;
 
     const [blogs, setBlog] = useState([]);
@@ -29,7 +27,7 @@ export default function Article() {
     // get Blog >> admin
     const getBlog = async() => {
         var arr = [];
-        await axios.get(`/blog-api/articles/`, {headers: {"Authorization": `Token ${token}`}}).then((response)=>{
+        await axios.get(`/blog-api/articles/`).then((response)=>{
             console.log(response.data);
             setBlog(response.data.results);
         }).catch(err=>{
@@ -38,7 +36,7 @@ export default function Article() {
     }
 
     const getArticle = async()=>{
-        await axios.get(`/blog-api/articles/${focusId}/`, { timeout: 10000, headers: {"Authorization": `Token ${token}`} })
+        await axios.get(`/blog-api/articles/${focusId}/`, { timeout: 10000})
         .then(res=>{
             console.log("ativdddd", res.data)
             setArticle(res.data);

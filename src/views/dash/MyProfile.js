@@ -37,6 +37,7 @@ import {
     const [city, setCity] = useState('');
     const [states, setStates] = useState('');
     const [zipcode, setZipcode] = useState('');
+    const [description, setDescription] = useState('');
   
   
        //get informations on each therati
@@ -54,11 +55,47 @@ import {
             setCity(res.data.properties.city)
             setStates(res.data.properties.region)
             setZipcode(res.data.properties.zip_code)
+            setDescription(res.data.properties.description)
             setShow(true);
         })
         .catch(err => {
             console.log(err);
         });
+      }
+
+      const updateInfos = async(type)=>{
+        console.log(type);
+        if(type==="address"){
+          let data = {
+            'address': address,
+            'city': city,
+            'region': states,
+            'zip_code': zipcode,
+          }
+          await axios.put(`/user-api/therapists/${id}/`, data, { headers: {"Authorization": `Token ${token}`} })
+          .then(res => {
+            console.log('goood');
+            alert("Address informations updated")
+          }).catch(err=>{
+            console.log(err);
+            alert("Address informations not updated")
+          })
+        }else{
+          let data = {
+            'label': business,
+            'description' : description,
+            // 'birthdate': dob,
+            'phone': phone
+          }
+          await axios.put(`/user-api/therapists/${id}/`, data, { headers: {"Authorization": `Token ${token}`} })
+          .then(res => {
+            console.log('goood');
+            alert('Account infos updated')
+          }).catch(err=>{
+            console.log(err);
+            alert("Account information not updated")
+          })
+        }
       }
   
     return (
@@ -128,13 +165,13 @@ import {
                               </span>
                           <span className="description">Photos</span>
                         </div>
-                        <div>
+                        {/* <div>
                            
                           <span className="heading">
-                          {show && ( <span> ${profile.booking_fee[0].booking_fee}</span>)}
+                          {show && profile.booking_fee.length > 0 && ( <span> ${profile.booking_fee[0].booking_fee}</span>)}
                         </span>
                           <span className="description"> Fee</span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </Row>
@@ -215,6 +252,7 @@ import {
                               placeholder="Username"
                               type="text"
                               value={username}
+                              // onChange={(e)=> setUsername(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -229,9 +267,10 @@ import {
                             <Input
                               className="form-control-alternative"
                               id="input-email"
-                              placeholder="jesse@example.com"
+                              placeholder="example@example.com"
                               type="email"
                               value={email}
+                              // onChange={(e)=> setEmail(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -252,6 +291,7 @@ import {
                               placeholder="Business name"
                               type="text"
                                 value={business}
+                                onChange={(e)=> setBusiness(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -267,12 +307,42 @@ import {
                               className="form-control-alternative"
                               defaultValue="Jesse"
                               id="input-last-name"
-                              placeholder="Last name"
+                              placeholder="Phone number"
                               type="text"
                               value={phone}
+                              onChange={(e)=> setPhone(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
+                        <Col lg="12">
+                          <FormGroup>
+                            <label
+                              className="form-control-label"
+                              htmlFor="input-last-name"
+                            >
+                              Description
+                            </label>
+                            <Input
+                              className="form-control-alternative"
+                              defaultValue="Jesse"
+                              id="input-last-name"
+                              placeholder="Business descriptin"
+                              type="textarea"
+                              value={description}
+                              onChange={(e)=> setDescription(e.target.value)}
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col>
+                            <Button
+                                className="button-add"
+                                onClick={()=> updateInfos('personal')}
+                                // style={{display: 'flex', justifyContent: 'center'}}
+                                size='sm'
+                            >
+                                Update infos
+                            </Button>
+                            </Col>
                       </Row>
                     </div>
                     <hr className="my-4" />
@@ -297,6 +367,7 @@ import {
                               placeholder="Home Address"
                               type="text"
                               value={address}
+                              onChange={(e)=> setAddress(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -317,6 +388,7 @@ import {
                               placeholder="City"
                               type="text"
                               value={city}
+                              onChange={(e)=> setCity(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -335,6 +407,7 @@ import {
                               placeholder="Country"
                               type="text"
                               value={states}
+                              onChange={(e)=> setStates(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
@@ -352,9 +425,20 @@ import {
                               placeholder="Postal code"
                               type="number"
                               value={zipcode}
+                              onChange={(e)=> setZipcode(e.target.value)}
                             />
                           </FormGroup>
                         </Col>
+                        <Col>
+                            <Button
+                                className="button-add"
+                                onClick={()=> updateInfos('address')}
+                                // style={{display: 'flex', justifyContent: 'center'}}
+                                size='sm'
+                            >
+                                Update infos
+                            </Button>
+                          </Col>
                       </Row>
                     </div>
                     <hr className="my-4" />

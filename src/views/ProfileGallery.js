@@ -118,9 +118,9 @@ useEffect(()=>{
 
 //get informations on each therati
 const getOffers = async()=>{
-    const userToken = getFromStorage('userToken');
-    const token = JSON.parse(userToken).key;
-    await axios.get(`/market-api/therapists/${id}/offers`, { headers: {"Authorization": `Token ${token}`} })
+    // const userToken = getFromStorage('userToken');
+    // const token = JSON.parse(userToken).key;
+    await axios.get(`/market-api/therapists/${id}/offers`)
     .then(async res => {
         console.log('this is the response ',res.data);
         setOffers(res.data);
@@ -156,9 +156,7 @@ const onChange = (date) => {
 
 //get informations on each therati
 const getDetails = async()=>{
-    const userToken = getFromStorage('userToken');
-    const token = JSON.parse(userToken).key
-    await axios.get(`/user-api/therapists/${id}/detail`, { headers: {"Authorization": `Token ${token}`} })
+    await axios.get(`/user-api/therapists/${id}/detail`)
     .then(async res => {
         console.log('this is the response details',res.data.properties);
         setDetail(res.data);
@@ -170,10 +168,8 @@ const getDetails = async()=>{
 }
 
 const getAvailibity = async(ddd)=>{
-    const userToken = getFromStorage('userToken');
-    let token = JSON.parse(userToken).token;
     
-    await axios.get(`http://healing-market.herokuapp.com/booking-api/therapists/${id}/availibilities`, { timeout: 10000, headers: {"Authorization": `Token ${token}`} })
+    await axios.get(`http://healing-market.herokuapp.com/booking-api/therapists/${id}/availibilities`, { timeout: 10000 })
     .then(async res => {
         let arr =sortArray('day_cut', res.data);
         // getDatetime(0);
@@ -341,14 +337,28 @@ const ratingChanged = (newRating) => {
   }
 
   const openBookingSet = ()=>{
-    setDescript(false);
-    setOpenBooking(true);
-
+   
+    const userToken = getFromStorage('userToken');
+    if(userToken){
+        setDescript(false);
+        setOpenBooking(true);
+    }else{
+        navigate(`/signin`, {state: {goto: 'profile', link: id}});
+    }
   }
 
   const openDescript = (elem)=>{
     setDescript(true);
     setSelectedOffer(elem);
+  }
+
+  const openReviewFunction = ()=>{
+    const userToken = getFromStorage('userToken');
+    if(userToken){
+        setOpenReview(true);
+    }else{
+        navigate(`/signin`, {state: {goto: 'profile', link: id}});
+    }
   }
 
   const OrderPayModal = useMemo(()=>{
@@ -425,7 +435,7 @@ const ratingChanged = (newRating) => {
                     <span>Add</span>
                 }
             </Button>
-            {' '}
+            
             <Button onClick={()=> setOpenReview(false)}>
                 Cancel
             </Button>
@@ -479,7 +489,7 @@ const ratingChanged = (newRating) => {
                 className="button-add"
                 onClick={bookingNow}
             >
-                Book now
+                Confirm booking
             </Button>
             
             <Button onClick={()=> setOpenBooking(false)}>
@@ -498,21 +508,22 @@ const ratingChanged = (newRating) => {
                 onClosed={()=> setDescript(false)}
                 size="lg"
             >
-                <ModalHeader style={{flex: 1}}>
-                    <div className="headderrr" style={{flex: 1}}>
-                        <div>
+                {/* <ModalHeader style={{width: '100%'}}> */}
+                    <div className="" style={{flex: 1, width: '100%', padding: 20, borderBottom: '1px solid gray', position: 'relative', display: 'flex', alignItems: 'center'}}>
+                        <div style={{width: '100%', fontSize: 22}}>
                             Offer Description
                         </div>
-                        <div style={{alignSelf: 'flex-end', width: '50%'}}>
+                        <div style={{width: '100%'}}>
                         <Button
                             className="button-add"
                             // onClick={openBookingSet}
+                            style={{position: 'absolute', top: 10, right: 10}}
                         >
                             ${selectedOffer.price}
                         </Button>
                         </div>
                     </div>
-                </ModalHeader>
+                {/* </ModalHeader> */}
                 <ModalBody>
                     <div className="">
                         <h3>{selectedOffer.category}</h3>
@@ -611,7 +622,7 @@ const ratingChanged = (newRating) => {
                                     )
                         })}
                         </div>
-                        <Button onClick={()=> setOpenReview(true)}>
+                        <Button onClick={openReviewFunction}>
                             <span>Add a review</span>
                         </Button>
                     </div>
@@ -670,7 +681,7 @@ const ratingChanged = (newRating) => {
                                             </div>
                                         </div>
                                     
-                                        <button onClick={()=>openDescript(ele)}>Book now</button>
+                                        <button onClick={()=>openDescript(ele)}>Learn more</button>
                                     </div>
                                     )}
                                     )}
@@ -705,7 +716,7 @@ const ratingChanged = (newRating) => {
                                     )
                         })}
                         </div>
-                        <button onClick={()=> setOpenReview(true)}>Add a review</button>
+                        <button onClick={openReviewFunction}>Add a review</button>
                     </div>
                 </div>
                 

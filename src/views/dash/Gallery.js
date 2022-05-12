@@ -51,7 +51,7 @@ const styles = {
 }
 
 
-const Gallery = ({showGallery, setShowGallery, photos})=>{
+const Gallery = ({showGallery, setShowGallery, photos, getAvailibity})=>{
 
     const [image, setImage] = useState([]);
 
@@ -72,6 +72,9 @@ const Gallery = ({showGallery, setShowGallery, photos})=>{
             "Content-Type": "multipart/form-data"}  })
             .then(async res => {
                 console.log("company images saved");
+                alert("image saved successfully");
+                getAvailibity();
+                setShowGallery(false);
                 return true;
             })
             .catch(err => {

@@ -176,9 +176,9 @@ const Sidebar = (props) => {
           {/* <h6 className="navbar-heading text-muted">Documentation</h6> */}
           {/* Navigation */}
           <Nav className="mb-md-3" navbar>
-            <NavItem className="active-pro active bg-dark">
-              <NavLink onClick={logout}>
-                <i className="ni ni-spaceship" />
+            <NavItem className={collapseOpen ? "active-pro active" : "active-pro active bg-dark"}>
+              <NavLink onClick={logout} style={{cursor: 'pointer'}}>
+                <i className="ni ni-spaceship "/>
                 Logout
               </NavLink>
             </NavItem>

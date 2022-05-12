@@ -114,9 +114,7 @@ const Admin = () => {
               <PrivacyPolicy />
           }
         />
-      {isSigning ? 
-      <>
-       <Route
+        <Route
          exact
           path="/blog"
           element={
@@ -130,8 +128,7 @@ const Admin = () => {
               <Article />
           }
         />
-       
-        <Route
+         <Route
         exact
           path="category"
           element={
@@ -145,6 +142,19 @@ const Admin = () => {
               <SearchResult />
           }
         />
+         <Route
+        exact
+          path="profile/:id"
+          element={
+              <ProfileGallery />
+          }
+        />
+
+      {isSigning ? 
+      <>
+       
+       
+       
         <Route
         exact
           path="payment"
@@ -159,14 +169,7 @@ const Admin = () => {
               <PaymentSubscription />
           }
         />
-        <Route
-        exact
-          path="profile/:id"
-          element={
-              <ProfileGallery />
-          }
-        />
-
+       
         <Route
         exact
           path="account"

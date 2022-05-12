@@ -6,11 +6,11 @@ import Footer from '../components/Footers/Footer'
 import axios from './../utils/axios';
 import {deleteStorage, setInstorage, getFromStorage} from './../utils/Storage'
 
-
 import {useNavigate} from 'react-router-dom';
 
 import { animated, config, useSprings } from "@react-spring/web";
 import { useSpring } from 'react-spring';
+import SlideLayout from './SlideLayout';
 
 const ColourListTransition = ({delay, items, activeColor, inactiveColor}) => {
   const [index, setIndex] = useState(0);
@@ -77,34 +77,32 @@ const gotoProfile = (id)=>{
 
 
   const clickCategory = (type, ind)=>{
-      if(user){
+    //   if(user){
         navigate(`/category`,{
             state: {type: type, num: ind}
         }
       );
-      }else{
-        navigate(`/signin`)
-      }
+    //   }else{
+    //     navigate(`/signin`)
+    //   }
     console.log("hello");
   }
 
   const search = ()=>{
-    if(user){
+    // if(user){
         if(!item){
             return alert('enter a word to search');
         }
         navigate(`/search`, {
             state: {word: item}
         });
-      }else{
-        navigate(`/signin`);
-      }
+    //   }else{
+    //     navigate(`/signin`);
+    //   }
   }
 
   const search_for_word = async()=>{
     setIsSpinning(true);
-    const tok = getFromStorage('userToken');
-    const toke = JSON.parse(tok);
     // setAccount(toke);
 
     navigator.geolocation.getCurrentPosition(async(location)=>{
@@ -112,7 +110,7 @@ const gotoProfile = (id)=>{
         let latitude = location.coords.latitude;
         let longitude = location.coords.longitude;
 
-        await axios.get(`/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}`,{ timeout: 30000, headers: {"Authorization": `Token ${toke.key}`} })
+        await axios.get(`/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}`,{ timeout: 30000 })
         .then(async item => {
             if(item.data.features.length > 0){
                 console.log('hyellll' ,item.data.features);
@@ -170,14 +168,14 @@ const returnlightSar = (num)=>{
      <>
       <Header />
         <div className="home">
-          <div className="container-home" style={{}}>
+          <div className="container-home" style={{display: 'flex', alignItems: 'center'}}>
               <div className="bg">
                   <img src="/assets/image/bg-2.svg" alt="" className="img-left"/>
                   <img src="/assets/image/bg-2.svg" alt="" className="img-center"/>
                   <img src="/assets/image/bg-2.svg" alt="" className="img-right"/>
               </div>
  
-              <div>
+              <div style={{display: 'flex', alignItems: 'center', paddingTop: 40}}>
                   <h2>Search and Book Holistic Providers near you</h2>
               </div>
               {/* <h4 style={{}}></h4> */}
@@ -231,8 +229,8 @@ const returnlightSar = (num)=>{
                   </div>
               </div>
           </div>
-          {user && (
-              <>
+          {/* {user && (
+              <> */}
                 <h3 className="title3">Our top therapist</h3>
                 <div className="slides">
                     {results.slice(0,5).map((ele)=>{
@@ -257,10 +255,11 @@ const returnlightSar = (num)=>{
                         )
                     })}
                 </div>
-              </>
-          )}
+              {/* </>
+          )} */}
           
       </div>
+      <SlideLayout />
       <Footer />
      </>
   )

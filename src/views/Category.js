@@ -41,16 +41,13 @@ export default function Category() {
     
       const search_for_word = async(searchword)=>{
         setIsSpinning(true);
-        const tok = getFromStorage('userToken');
-        const toke = JSON.parse(tok);
-        setAccount(toke);
     
         navigator.geolocation.getCurrentPosition(async(location)=>{
             console.log("this is the location: ", location.coords);
             let latitude = location.coords.latitude;
             let longitude = location.coords.longitude;
     
-            await axios.get(`http://healing-market.herokuapp.com/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}&query=${searchword}`,{ timeout: 10000, headers: {"Authorization": `Token ${toke.key}`} })
+            await axios.get(`http://healing-market.herokuapp.com/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}&query=${searchword}`,{ timeout: 10000 })
             .then(async item => {
                 if(item.data.features.length > 0){
                     console.log('hyellll' ,item.data.features);

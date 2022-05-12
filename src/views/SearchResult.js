@@ -19,7 +19,7 @@ export default function SearchResult() {
     const [results, setResults] = useState([]);
     const [isSpinning, setIsSpinning] = useState(true);
     const [item, setItem] = useState(word);
-    const [account, setAccount] = useState({});
+
 
     const clickCategory = (id)=>{
         console.log("hello");
@@ -44,16 +44,13 @@ export default function SearchResult() {
     
       const search_for_word = async(searchword)=>{
         setIsSpinning(true);
-        const tok = getFromStorage('userToken');
-        const toke = JSON.parse(tok);
-        setAccount(toke);
     
         navigator.geolocation.getCurrentPosition(async(location)=>{
             console.log("this is the location: ", location.coords);
             let latitude = location.coords.latitude;
             let longitude = location.coords.longitude;
     
-            await axios.get(`/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}&query=${searchword}`,{ timeout: 10000, headers: {"Authorization": `Token ${toke.key}`} })
+            await axios.get(`/market-api/search/therapists_location/?longitude=${longitude}&latitude=${latitude}&query=${searchword}`,{ timeout: 10000})
             .then(async item => {
                 if(item.data.features.length > 0){
                     console.log('hyellll' ,item.data.features);
@@ -137,7 +134,7 @@ export default function SearchResult() {
                     </div>
                     <div class="home-card-map">
                         <h3>
-                            {ele.properties.label} {ele.id === account.id ? ' (You) ' : ''}
+                            {ele.properties.label} 
                         </h3>
                         <div>
                             <img src="../assets/icons/map.svg" alt=""/>

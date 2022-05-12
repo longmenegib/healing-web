@@ -3,7 +3,7 @@ import { Modal, ModalHeader, FormGroup, Input, Button, Alert, Toast, ModalFooter
 import {deleteStorage, setInstorage, getFromStorage} from '../../utils/Storage';
 import axios from '../../utils/axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
 
 import './setcalendar.css';
 import '../css/customCalendar.css'
@@ -35,9 +35,7 @@ const styles = {
 }
 
 
-const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer})=>{
-
-    // const []
+const Services = ({setOpenService, openService, offers, setOpenOffer, openUpdate})=>{
 
     return(
       <Modal
@@ -62,7 +60,11 @@ const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer}
                                 <div className="slides">
                                 {offers.map((ele, index)=>{
                                 return(
-                                <div key={index} className="home-card">
+                                <div key={index} className="home-card" style={{position: 'relative'}}>
+                                    <FontAwesomeIcon onClick={()=> openUpdate(ele)} className="iconss" icon={faPencil} size="1x"
+                                        style={{position:'absolute', top: -5, right: 0, background: '#fff',
+                                    padding: 7, borderRadius: 100}}
+                                    />
                                     <div className="home-card-img">
                                         <img src={ele.illustration || "../assets/image/group-1.svg"} alt=""  style={{width: '100%', objectFit: 'cover', height: '100px'}}/>
                                     </div>
@@ -86,7 +88,7 @@ const Services = ({setOpenService, openService, offers, setOpenOffer, openOffer}
                     </div>
                     <ModalFooter>
                     <div className="" style={{display: 'flex'}} onClick={()=> setOpenService(false)}>
-                    {/* <FontAwesomeIcon className="iconss" icon={faClose} size="1x"/> */}
+                    
                     <Button
                         className="button-add"
                         onClick={()=> setOpenOffer(true)}

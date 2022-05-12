@@ -74,6 +74,7 @@ export default function DashboardHome() {
   const [offers, setOffers] = useState([]);
 
   const [openOffer, setOpenOffer] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState({});
 
     const [times, setTimes] = useState([
         {
@@ -81,6 +82,14 @@ export default function DashboardHome() {
             values: []
         }
     ]);
+
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+    const [offer, setOffer] = useState("");
+    const [image, setImage] = useState([]);
+    const [category, setCategory] = useState([{id: 1, label: 'Select a category'}]);
+    const [typeOffer, setTypeOffer]= useState('add');
+    const [offername, setOffername] = useState("");
 
     useEffect(()=>{
         getDetails();
@@ -110,6 +119,28 @@ export default function DashboardHome() {
         // console.log('these are the element ',detail);
         getOffers();
     }, []);
+
+    useEffect(()=>{
+        getMarketCategory();
+        return ()=>{
+           
+        }
+    }, []);
+
+    const getMarketCategory = async()=>{
+        console.log('getting the category')
+        axios.get('/market-api/categories/', { withCredentials: false })
+            .then(async res => {
+                // console.log(res.data.results);
+                if(res.data.results.length > 0){
+                    setCategory(res.data.results);
+                    setOffer(res.data.results[0].id);
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+    }
+
     
     //get informations on each therati
     const getOffers = async()=>{
@@ -238,6 +269,17 @@ const sortArray = (key, arr)=>{
     setOpenAccount(true);
   }
 
+  const openUpdate = (ele)=>{
+      console.log(ele);
+    setSelectedOffer(ele);
+    setTypeOffer("update");
+    setDescription(ele.description);
+    setPrice(ele.price);
+    // setOffername(ele.label);
+    setOffer(category[0].id);
+    setOpenOffer(true);
+}
+
   const Account = useMemo(()=>{
 
     return(
@@ -265,21 +307,6 @@ const sortArray = (key, arr)=>{
 
   return (
     <div className="home">
-        {!checkLink && (
-            <div style={{position: 'fixed', zIndex: 100, top: 0, right: 0}}>
-                <Alert
-                color="danger"
-                // toggle={function noRefCheck(){}}
-                isOpen={true}
-                onClick={()=> setopenFee(true)}
-                >
-                    {/* <h4></h4> */}
-                    Link your stripe account in order to receive payment from your bookings
-                    {/* <p>Click on Manage Payment and link your Stripe ID</p> */}
-                </Alert>
-            </div>
-        )}
-
         <OrderPayModal openReview={openReview} setOpenreview={setOpenreview} reviewList={reviewList}/>
         <SetCalendar 
             times={times} 
@@ -301,6 +328,7 @@ const sortArray = (key, arr)=>{
             showGallery={showGallery}
             setShowGallery={setShowGallery}
             photos={photos} 
+            getAvailibity={getAvailibity} 
         />
 
         <Subscription 
@@ -312,12 +340,24 @@ const sortArray = (key, arr)=>{
             openService={openService}
             offers={offers}
             setOpenOffer={setOpenOffer}
-            openOffer={openOffer}
+            setSelectedOffer={setSelectedOffer}
+            openUpdate={openUpdate}
         />
 
         <AddOffer 
             setOpenOffer={setOpenOffer}
             openOffer={openOffer}
+            setSelectedOffer={setSelectedOffer}
+            selectedOffer={selectedOffer}
+            price={price} setPrice={setPrice} 
+            category={category} setCategory={setCategory}
+            description={description} setDescription={setDescription}
+            offer={offer} setOffer={setOffer}
+            image={image} setImage={setImage}
+            typeOffer={typeOffer} setTypeOffer={setTypeOffer}
+            getOffers={getOffers}
+            setOpenService={setOpenService}
+            offername={offername} setOffername={setOffername}
         />
         <div className="container-home" style={{height: '100%', paddingTop: 120}}>
             <div className="bg" style={{top: '20%'}}>
@@ -353,10 +393,10 @@ const sortArray = (key, arr)=>{
                 
             {/* </div>
             <div> */}
-                <div className="home-card dash-card" onClick={()=> setopenFee(true)}>
+                {/* <div className="home-card dash-card" onClick={()=> setopenFee(true)}>
                     <FontAwesomeIcon className="iconss" icon={faDollar} size="4x"/>
                     <h2>Update Fee</h2>
-                </div>
+                </div> */}
                 <div className="home-card dash-card" onClick={()=> setShowGallery(true)}>
                     <FontAwesomeIcon className="iconss" icon={faImages} size="4x"/>
                     <h2>My Gallery</h2>
@@ -367,7 +407,7 @@ const sortArray = (key, arr)=>{
                 </div>
                 <div className="home-card dash-card" onClick={()=> setOpenService(true)}>
                     <FontAwesomeIcon className="iconss" icon={faMoneyBill} size="4x"/>
-                    <h2>Services</h2>
+                    <h2>Offers</h2>
                 </div>
             </div>
 

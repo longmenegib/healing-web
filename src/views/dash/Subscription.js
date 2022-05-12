@@ -103,7 +103,7 @@ const Subscription = ({setshowSubs, showSubs})=>{
         <div style={{display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'center'}}>
             <div style={{ display: 'flex' ,alignSelf: 'center'}}>
                 <p style={{textAlign: 'center'}}>
-                    List tour business for one low monthly fee to get unlimited visibility
+                    List your business for one low monthly fee to get unlimited visibility
                 </p>
             </div>
             <div className="subs-plan">

@@ -68,10 +68,20 @@ body::-webkit-scrollbar-thumb {
   align-items: flex-end;
   overflow: hidden;
 }
+
+
+
 .home .container-home .bg .img-left,
 .home .container-home .bg .img-right {
   width: 330px;
+  object-fit: contain !important;
+  height: 70%;
 }
+
+.home .container-home .bg .img-center{
+  height: 80%;
+}
+
 .home .container-home div h2 {
   font-family: "Montserrat Alternates", sans-serif;
   color: #fff;

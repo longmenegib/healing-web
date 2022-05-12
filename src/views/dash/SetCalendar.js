@@ -20,6 +20,8 @@ const styles = {
         justifyContent: 'center',
         position: 'relative',
         marginTop: '30px',
+        marginBottom: '20px',
+        paddingLeft: 10
     },
     cancelbtn:{
         width: '200px',
@@ -42,6 +44,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
 
         const [value, onChangeValue] = useState('10:00');
         const [selectedTime, setSelectedTime] = useState(null);
+        const [dob, setDob] = useState("");
 
     const onChangeTime = (tim)=>{
         console.log(tim);
@@ -116,7 +119,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
         <div className="container-profil">
           <div className="container-foter">
                 <div className=" reviewws" style={{width: '100%'}}>
-                    <div className="" style={{position: 'absolute', right: '10px'}} onClick={()=> setopenCalendar(false)}>
+                    <div className="" style={{position: 'absolute', right: '25px'}} onClick={()=> setopenCalendar(false)}>
                         <FontAwesomeIcon className="iconss" icon={faClose} size="2x"/>
                     </div>
                     <h3 style={{textAlign: 'center'}}>Set Calendar <span></span></h3>
@@ -146,14 +149,15 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                     </div>
                     
                     <div style={styles.contain}>
-                        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-                            <h4>Add a new time slot</h4>
+                        <div style={{width: '100%', display: 'flex'}}>
+                            <h4>Add a new time for {activeDay}</h4>
                         </div>
-                        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+                        {/* <input value={dob} onChange={(e)=> setDob(e.target.value)} type="date"  placeholder="Date of Birth " required /> */}
+                        <div style={{width: '100%', display: 'flex'}}>
                             <TimePicker onChange={onChangeTime} value={value} />
                         </div>
-                        <div style={{width: '100%', justifyContent: 'center', display:'flex'}}>
-                            <button style={styles.cancelbtn} className="button-addd" onClick={()=>addTimeDate()}>Add Time</button>
+                        <div style={{width: '100%', display:'flex'}}>
+                            <button style={styles.cancelbtn} className="button-addd" onClick={()=>addTimeDate()}>Save slot</button>
                         </div>
                     </div>
                     

@@ -15,6 +15,8 @@ import {useNavigate} from 'react-router-dom';
 import { AuthContext } from '../App';
 import axios from './../utils/axios';
 import {deleteStorage, setInstorage, getFromStorage} from './../utils/Storage'
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 const stripe = loadStripe(
     "pk_live_51IMgMoD0JaUAVNhkluLE0zZhay0VbtxQ0NKoRjoas5CEyYrbX8DTKI2xPH7GYiYbsljAiy8sxEkKQWVktYa3KU6R001wbzfLnc"
@@ -79,11 +81,24 @@ export default function Register() {
         });
       }
 
-    function validatePhoneNumber(input_str) {
-        var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    // function validatePhoneNumber(input_str) {
+    //     var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
       
-        return re.test(input_str);
-      }
+    //     return re.test(input_str);
+    //   }
+    
+    //   const validatePhoneNumber = (num)=>{
+    //     let phoneNumber = parsePhoneNumber(num)
+    //     alert(phoneNumber);
+    //     console.log(phoneNumber)
+    //     // alert(phoneNumber.country)
+    //     // if ( phoneNumber.country === 'US') {
+    //     //     return true;
+    //     // }else{
+    //     //     return false;
+    //     // }
+    //     return isValidPhoneNumber(phoneNumber);
+    //   }
     
       function validateZip(zip){
         const re = /^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/;
@@ -111,6 +126,7 @@ export default function Register() {
 
     const register = async(e)=>{
         e.preventDefault();
+        // alert(phone.length);
 
         if(selectedItem.length < 1){
             alert(
@@ -136,8 +152,8 @@ export default function Register() {
                 alert('Username should not have space');
                 return ;
             }
-            if(!validatePhoneNumber(phone)){
-                alert("not correct phone number");
+            if(phone.length !== 12){
+                alert("Please enter a valid US number");
                 return
             }
     
@@ -191,6 +207,7 @@ export default function Register() {
         }
         
       }
+
     
       const styleSelect = {
         control: base => ({
@@ -219,7 +236,7 @@ export default function Register() {
 
             <form>
                 <div className="text">
-                    <h3>Already have an account ? <a href="signin">Login in instead!</a></h3>
+                    <h4>Already have an account ? <a href="signin">Login!</a></h4>
                     <h3>Please fill in all the required fields correctly and then validate your registration</h3>
                 </div>
                 <div className="form-input">
@@ -242,7 +259,9 @@ export default function Register() {
                     <input value={business} onChange={(e)=> setbusiness(e.target.value)} type="text" name="business" id="business" placeholder="Business name" required />
                     <textarea value={descript} onChange={(e)=> setDescript(e.target.value)} type="text" name="Description" id="descr" placeholder="Business Description" required></textarea>
                     <input value={address} onChange={(e)=> setAddress(e.target.value)} type="text" name="address" id="address" placeholder="Address" required />
-                    <input value={phone} onChange={(e)=> setPhone(e.target.value)} type="number" name="phone" id="phone" placeholder="Phone number" required />
+                    <PhoneInput limitMaxLength="12" 
+                    style={{}} className="options" defaultCountry="US" country="US" value={phone} 
+                    onChange={setPhone} placeholder="Phone number" />
                     <input value={states} onChange={(e)=> setStates(e.target.value)} type="text" name="state" id="state" placeholder="State" required />
                     <input value={city} onChange={(e)=> setCity(e.target.value)} type="text" name="city" id="city" placeholder="City" required />
                     <input value={zipcode} onChange={(e)=> setZipcode(e.target.value)} type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required />
@@ -251,7 +270,7 @@ export default function Register() {
                     <input value={dob} onChange={(e)=> setDob(e.target.value)} type="date"  placeholder="Date of Birth " required />
                     <div className="form-input-files">
                         <div className="files-card">
-                            <label htmlFor="company">Add your company logo</label>
+                            <label htmlFor="company">Add logo or profile picture</label>
                             <input onChange={(e)=> setLogo(e.target.files[0])} type="file" name="company" id="company" className="choose-file" required />
                         </div>
                         <div className="files-card">
@@ -276,7 +295,7 @@ export default function Register() {
                         <input type="checkbox" name="pay" id="pay" checked />
                     </div>
                     <label>$14.99 / Month</label>
-                    <p>List tour business for one low montly fee to get unlimited visibility ! Enjoy 30 days free trial
+                    <p>List your business for one low monthly fee to get unlimited visibility ! Enjoy 30 days free trial
                     </p>
                 </div>
                 <div className="buttons">
