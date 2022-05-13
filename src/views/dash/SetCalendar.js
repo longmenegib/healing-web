@@ -11,18 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const styles = {
-    contain:{
-        // backgroundColor: 'white',
-        // height: Dimensions.get("screen").height - 150,
-        width: '100%',
-        alignItems:'center',
-        flexDirection:'column',
-        justifyContent: 'center',
-        position: 'relative',
-        marginTop: '30px',
-        marginBottom: '20px',
-        paddingLeft: 10
-    },
+   
     cancelbtn:{
         width: '200px',
         backgroundColor: 'red',
@@ -130,7 +119,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                                 <div>
                                 {times[0].values.length < 1 && (
                                 <div style={{width: '100%', flexDirection: 'column', alignItems: 'center'}}>
-                                    <p style={{ fontSize: 18, fontWeight: '600', color: 'gray', marginBottom: 10 }}>No time slot available for this day</p>
+                                    <p className="notimemsg" style={{ fontWeight: '600', color: 'gray', marginBottom: 10 }}>No time slot available for this day</p>
                                 </div> 
                                 )}
                                 {times[0].values.map((element, imdex) => {
@@ -148,15 +137,15 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                         </div>
                     </div>
                     
-                    <div style={styles.contain}>
-                        <div style={{width: '100%', display: 'flex'}}>
+                    <div className="downnnn">
+                        <div style={{}}>
                             <h4>Add a new time for {activeDay}</h4>
                         </div>
                         {/* <input value={dob} onChange={(e)=> setDob(e.target.value)} type="date"  placeholder="Date of Birth " required /> */}
-                        <div style={{width: '100%', display: 'flex'}}>
+                        <div style={{}}>
                             <TimePicker onChange={onChangeTime} value={value} />
                         </div>
-                        <div style={{width: '100%', display:'flex'}}>
+                        <div className="save-slot">
                             <button style={styles.cancelbtn} className="button-addd" onClick={()=>addTimeDate()}>Save slot</button>
                         </div>
                     </div>
