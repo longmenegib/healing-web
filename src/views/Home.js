@@ -176,7 +176,7 @@ const returnlightSar = (num)=>{
               </div>
  
               <div style={{display: 'flex', alignItems: 'center', paddingTop: 40}}>
-                  <h2>Search and Book Holistic Providers near you</h2>
+                  <h2>Search and Book Holistic Providers near ou</h2>
               </div>
               {/* <h4 style={{}}></h4> */}
               <ColourListTransition
@@ -189,7 +189,7 @@ const returnlightSar = (num)=>{
                   <input value={item} onChange={(e)=> setItem(e.target.value)} type="text" name="item" id="item" placeholder="Symptoms or illness"/>
                   <button onClick={search}><img src="/assets/icons/search.svg" alt="seach"/></button>
               </div>
-          </div>
+          </div> 
           <h5>Search by category to find the therapist you need</h5>
           <div className="home-cards">
               <div>

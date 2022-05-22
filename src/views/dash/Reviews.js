@@ -3,6 +3,8 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
 import ReactStars from "react-rating-stars-component";
 import {deleteStorage, setInstorage, getFromStorage} from '../../utils/Storage';
 import './review.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 
 const styles = {
     contain:{
@@ -45,6 +47,9 @@ const OrderPayModal = ({setOpenreview, openReview, reviewList})=>{
           <div className="container-footer">
                 <div className=" reviewws" style={{width: '100%'}}>
                     <h3>My Review <span></span></h3>
+                    <div className="" style={{position: 'absolute', right: '25px'}} onClick={()=> setOpenreview(false)}>
+                        <FontAwesomeIcon className="iconss" icon={faClose} size="2x"/>
+                    </div>
                     <div className="profile-card" style={{width: '100%'}}>
                         <div className="box">
                         {reviewList.map((rev, index)=>{
@@ -69,7 +74,7 @@ const OrderPayModal = ({setOpenreview, openReview, reviewList})=>{
                                     )
                         })}
                         </div>
-                        <button style={styles.cancelbtn} onClick={()=> setOpenreview(false)}>Close</button>
+                        {/* <button style={styles.cancelbtn} onClick={()=> setOpenreview(false)}>Close</button> */}
                     </div>
                 </div>
             </div>

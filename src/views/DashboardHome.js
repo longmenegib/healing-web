@@ -206,7 +206,7 @@ export default function DashboardHome() {
     const userToken = getFromStorage('userToken');
     let token = JSON.parse(userToken).token;
     let id = JSON.parse(userToken).id;
-    await axios.get(`http://healing-market.herokuapp.com/booking-api/therapists/${id}/availibilities`, { timeout: 10000, headers: {"Authorization": `Token ${token}`} })
+    await axios.get(`/booking-api/therapists/${id}/availibilities`, { timeout: 10000, headers: {"Authorization": `Token ${token}`} })
     .then(async res => {
         let arr =sortArray('day_cut', res.data);
         // getDatetime(0);

@@ -169,7 +169,7 @@ const getDetails = async()=>{
 
 const getAvailibity = async(ddd)=>{
     
-    await axios.get(`http://healing-market.herokuapp.com/booking-api/therapists/${id}/availibilities`, { timeout: 10000 })
+    await axios.get(`/booking-api/therapists/${id}/availibilities`, { timeout: 10000 })
     .then(async res => {
         let arr =sortArray('day_cut', res.data);
         // getDatetime(0);
@@ -564,7 +564,7 @@ const ratingChanged = (newRating) => {
                 </div>
                 <div className="header-title">
                     <div className="profile-card-map">
-                        <h3>{detail.properties.label}</h3>
+                        <h3>{detail.properties.label}</h3><br/>
                         <div>
                             <img src="../assets/icons/map.svg" alt=""/>
                             <span>{detail.properties.address}</span>

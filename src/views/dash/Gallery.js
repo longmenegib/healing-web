@@ -97,11 +97,11 @@ const Gallery = ({showGallery, setShowGallery, photos, getAvailibity})=>{
            <div style={{height: '100%'}}>
             <ModalHeader>
                 Gallery
-                <div className="gallery-buttons" style={{position: 'absolute', right: '10px', top:'0'}}>
-                        {/* <FontAwesomeIcon className="iconss" icon={faClose} size="1x"/> */}
-                        <div style={{width: '100%', justifyContent: 'center', display:'flex'}}>
+                <div className="gallery-buttons" style={{position: 'absolute', right: '10px', top:'0'}} onClick={()=> setShowGallery(false)}>
+                        <FontAwesomeIcon className="iconss" icon={faClose} size="2x"/>
+                        {/* <div style={{width: '100%', justifyContent: 'center', display:'flex'}}>
                             <button style={styles.cancelbtn} className=""  onClick={()=> setShowGallery(false)}>Close</button>
-                        </div>
+                        </div> */}
                     
                     </div>
                 </ModalHeader>
