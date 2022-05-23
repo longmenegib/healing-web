@@ -91,6 +91,8 @@ export default function DashboardHome() {
     const [typeOffer, setTypeOffer]= useState('add');
     const [offername, setOffername] = useState("");
 
+    const [markedDays, setMarkedDays] = useState([]);
+
     useEffect(()=>{
         getDetails();
     }, []);
@@ -213,6 +215,15 @@ export default function DashboardHome() {
         setAvailabilities(arr);
         let b = arr.filter(item => item.key === ddd);
 
+        let markedDay = [];
+
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index].key;
+            console.log('day to mark:', element);
+            markedDay.push(element);
+        }
+        setMarkedDays(markedDay);
+
         if(b.length > 0){
            
             setTimes(b);
@@ -317,6 +328,8 @@ const sortArray = (key, arr)=>{
             setTimes={setTimes}
             activeDay={activeDay}
             setActiveDay={setActiveDay}
+            markedDays = {markedDays}
+            setMarkedDays = {setMarkedDays}
         />
         {Account}
         <SetFee 

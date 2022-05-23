@@ -7,13 +7,14 @@ import axios from './../utils/axios';
 import {deleteStorage, setInstorage, getFromStorage} from './../utils/Storage';
 import DatePicker from 'sassy-datepicker';
 import Calendar from 'react-calendar'
-// import 'react-calendar/dist/Calendar.css';
+import 'react-calendar/dist/Calendar.css';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Spinner } from 'reactstrap'
 import ReactStars from "react-rating-stars-component";
 import { BrowserRouter, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import moment from 'moment' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons'
+
 
 const styles = {
     timeslot:{
@@ -96,6 +97,9 @@ export default function ProfileGallery() {
     const [showAddreview, setShowaddreview ] = useState(false);
     const [descript, setDescript] = useState(false)
 
+    const [markedDays, setMarkedDays] = useState([]);
+
+
   useEffect(()=>{
     getDetails();
 }, []);
@@ -175,6 +179,15 @@ const getAvailibity = async(ddd)=>{
         // getDatetime(0);
         setAvailabilities(arr);
         let b = arr.filter(item => item.key === ddd);
+
+        let markedDay = [];
+
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index].key;
+            console.log('day to mark:', element);
+            markedDay.push(element);
+        }
+        setMarkedDays(markedDay);
 
         if(b.length > 0){
             setSelectedTime(b[0].values[0].time_cut);
@@ -458,7 +471,27 @@ const ratingChanged = (newRating) => {
             </ModalHeader>
             <ModalBody>
             <div className="center">
-                            <DatePicker onChange={onChange} className="datepicker"/>
+                            {/* <DatePicker onChange={onChange} className="datepicker"/> */}
+                            <Calendar
+                                style={{ height: '100%', width: '100%' }}
+                                onChange={onChange}
+                                value={new Date()}
+                                tileClassName={({ date, view }) => {
+                                if(markedDays.find(x=>x===moment(date).format("YYYY-MM-DD"))){
+                                return  'highlllight'
+                                }
+                                }}
+
+
+                                // tileDisabled={({ date }) => date.getDay() === 0}
+
+                                /*maxDate={new Date(2020, 1, 0)}</div>*/
+                                minDate={
+                                new Date()
+                                }
+                            >
+                            </Calendar>
+
                             <div className="hours">
                                 <div>
                                 {times.length < 1 ? (
@@ -563,8 +596,8 @@ const ratingChanged = (newRating) => {
                     <img src={detail.properties.logo || "../assets/image/group-1.svg"} alt="" style={{width: '100%', objectFit: 'cover'}} />
                 </div>
                 <div className="header-title">
-                    <div className="profile-card-map">
-                        <h3>{detail.properties.label}</h3><br/>
+                    <div className="profile-card-map" style={{flexDirection: 'column'}}>
+                        <h3>{detail.properties.label}</h3>
                         <div>
                             <img src="../assets/icons/map.svg" alt=""/>
                             <span>{detail.properties.address}</span>
@@ -589,14 +622,15 @@ const ratingChanged = (newRating) => {
                     </div>
                 </div>
             </div>
-            <div className="container-footer">
+           
                 <div className="profile-card">
                         <h3>Description <span></span></h3>
                         <p>
                             {detail.properties.description}
                         </p>
-                    </div>
-                 <div className="footer-left review-web">
+                </div>
+                 <div className="container-footer">
+                <div className="footer-left review-web">
                     <div className="profile-card">
                         <h3>Review <span></span></h3>
                         <div className="box">
@@ -644,14 +678,6 @@ const ratingChanged = (newRating) => {
                     <div className="right-body">
                         {select ?
                         <div className="center">
-                            {/* <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/>
-                            <img src="../assets/icons/galleryGray.svg" alt=""/> */}
                             <div className="imagess">
                             <div className="center">
                                 {detail.properties.photos.map((img, index)=>{

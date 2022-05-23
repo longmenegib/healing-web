@@ -29,6 +29,7 @@ import {isMobile} from 'react-device-detect';
 import RegistrationSubscription from "./views/RegistrationSubscription";
 import DashboardClient from "./views/DashboardClient";
 import Article from "./views/Article";
+import Reset from "./views/Reset";
 
 export const AuthContext = createContext();
 
@@ -149,7 +150,7 @@ const Admin = () => {
               <ProfileGallery />
           }
         />
-
+         
       {isSigning ? 
       <>
        
@@ -274,6 +275,14 @@ const Admin = () => {
               <RegistrationSubscription />
           }
         />
+        <Route
+        exact
+          path="reset/:uid/:token"
+          element={
+              <Reset />
+          }
+        />
+
       </>
     }
     <Route exact path="*" element={<Terms />} status={404}/>

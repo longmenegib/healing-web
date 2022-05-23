@@ -203,7 +203,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .profileGallery .container-footer .review-web {
   display: flex;
@@ -336,7 +336,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
  .center {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -388,7 +388,7 @@ body::-webkit-scrollbar-thumb {
   flex-wrap: wrap;
   margin-bottom: 5rem;
   /* flex-direction: column; */
-  
+  width: 100%;
 }
 .slides .home-card {
   width: 250px;
@@ -484,7 +484,13 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-between !important;
 } */
 
-@media (max-width: 567px) {
+@media (max-width: 998px) {
+  .slides .home-card{
+    width: 220px
+  }
+}
+
+@media (max-width: 768px) {
   .profile-card-contact span{
     display: none;
   }

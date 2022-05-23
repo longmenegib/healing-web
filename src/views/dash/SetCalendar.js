@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo }  from 'react'
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap'
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Alert } from 'reactstrap'
 import ReactStars from "react-rating-stars-component";
 import {deleteStorage, setInstorage, getFromStorage} from '../../utils/Storage';
 import axios from '../../utils/axios';
@@ -9,6 +9,15 @@ import '../css/customCalendar.css'
 import 'react-time-picker/dist/TimePicker.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons'
+import moment from 'moment'
+
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+
+
+const mark = [
+    '2022-05-24',
+]
 
 const styles = {
    
@@ -22,18 +31,19 @@ const styles = {
         borderRadius: '50px',
         height: '40px',
         marginTop: '30px',
-        color: 'white'
+        color: 'white',
     },
 }
 
 
 const SetCalendar = ({setopenCalendar, openCalendar, times, 
-    getAvailibity, availabilities, setTimes, setActiveDay, activeDay
+    getAvailibity, availabilities, setTimes, setActiveDay, activeDay, markedDays, setMarkedDays
     })=>{
 
         const [value, onChangeValue] = useState('10:00');
         const [selectedTime, setSelectedTime] = useState(null);
         const [dob, setDob] = useState("");
+
 
     const onChangeTime = (tim)=>{
         console.log(tim);
@@ -94,6 +104,27 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
         })
     }
 
+    const deleteTIme = async(uiid) => {
+         const userToken = getFromStorage('userToken');
+        const token = JSON.parse(userToken).key
+        let id = JSON.parse(userToken).id;
+        await axios.delete(`http://healing-market.herokuapp.com/booking-api/availibilities/${uiid}/`, { headers: {"Authorization": `Token ${token}`} })
+        .then((res)=>{
+            console.log(res);
+            alert("Timeslot deleted")
+            getAvailibity(activeDay);
+        })
+        .catch((err)=>{
+            console.log(err);
+            alert("Unable to delete timeslot");
+        })
+    }
+
+
+    const timeAction = async(uiid)=>{
+        window.confirm('Are you sure you wish to delete this item?') ? deleteTIme(uiid) : console.log('cancel');
+    }
+
     return(
       <Modal
     //   toggle={()=> setopenCalendar(false)}
@@ -114,7 +145,28 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                     <h3 style={{textAlign: 'center'}}>Set Calendar <span></span></h3>
                     <div className="right-body">
                         <div className="center">
-                            <DatePicker onChange={onChange} className="datepicker"/>
+                            {/* <DatePicker onChange={onChange} className="datepicker"/> */}
+                           
+                            <Calendar
+                                style={{ height: '100%', width: '100%' }}
+                                onChange={onChange}
+                                value={new Date()}
+                                tileClassName={({ date, view }) => {
+                                if(markedDays.find(x=>x===moment(date).format("YYYY-MM-DD"))){
+                                return  'highlllight'
+                                }
+                                }}
+
+
+                                // tileDisabled={({ date }) => date.getDay() === 0}
+
+                                /*maxDate={new Date(2020, 1, 0)}</div>*/
+                                // minDate={
+                                // new Date()
+                                // }
+                            >
+                            </Calendar>
+
                             <div class="hours">
                                 <div>
                                 {times[0].values.length < 1 && (
@@ -126,6 +178,7 @@ const SetCalendar = ({setopenCalendar, openCalendar, times,
                                     return(
                                             <div key={imdex} class="hour" 
                                             style={{ backgroundColor: '#ff9933' }}
+                                            onDoubleClick={() => timeAction(element.id)}
                                             >
                                                 {element.time_cut}
                                             </div>

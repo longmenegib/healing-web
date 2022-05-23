@@ -38,6 +38,7 @@ import {
     const [states, setStates] = useState('');
     const [zipcode, setZipcode] = useState('');
     const [description, setDescription] = useState('');
+    const [new_pass, setNewPass] = useState('');
   
   
        //get informations on each therati
@@ -61,6 +62,25 @@ import {
         .catch(err => {
             console.log(err);
         });
+      }
+
+      const passwordChange = async()=>{
+        if(new_pass.length < 8){
+          return ;
+        }
+        let dat = {
+          new_password1: new_pass,
+          new_password2: new_pass,
+        }
+        await axios.post(`/rest-auth/password/change/`, dat, { headers: {"Authorization": `Token ${token}`} })
+        .then(res=>{
+          console.log('good');
+          alert("Password changed");
+          setNewPass('')
+        }).catch(err=>{
+          console.log(err);
+          alert("Password not changed")
+        })
       }
 
       const updateInfos = async(type)=>{
@@ -443,6 +463,45 @@ import {
                     </div>
                     <hr className="my-4" />
                    
+
+                    <h6 className="heading-small text-muted mb-4">
+                      Authentication
+                    </h6>
+                    <div className="pl-lg-4">
+                      <Row>
+                        <Col md="12">
+                          <FormGroup>
+                            <label
+                              className="form-control-label"
+                              htmlFor="input-address"
+                            >
+                              Enter new password
+                            </label>
+                            <Input
+                              className="form-control-alternative"
+                              defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                              id="input-address"
+                              placeholder="password"
+                              type="password"
+                              value={new_pass}
+                              onChange={(e)=> setNewPass(e.target.value)}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                            <Button
+                                className="button-add"
+                                onClick={()=> passwordChange()}
+                                // style={{display: 'flex', justifyContent: 'center'}}
+                                size='sm'
+                            >
+                                Change password
+                            </Button>
+                          </Col>
+                      </Row>
+                    </div>
                     {/* <h6 className="heading-small text-muted mb-4">About me</h6>
                     <div className="pl-lg-4">
                       <FormGroup>
